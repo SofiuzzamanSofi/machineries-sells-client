@@ -5,10 +5,10 @@ site type: Server side
 
 Live site Link-
 
- [Machineries-Sells]().
+ [Machineries-Sells](https://machineries-sells.web.app).
 
 
  Server side Link-
 
- [Machineries-Sells-server ]().
+ [Machineries-Sells-server ](https://machineries-sells-server.vercel.app).
 
