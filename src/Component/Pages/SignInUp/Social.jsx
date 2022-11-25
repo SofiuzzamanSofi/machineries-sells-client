@@ -1,17 +1,26 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import saveUserOnDb from './UserOnDb';
+
+
 const googleProvider = new GoogleAuthProvider();
 
 const Social = () => {
 
     const { loginSocial } = useContext(AuthContext);
 
+
+    const navigate = useNavigate();
+
     const loginWithSocial = provider => {
         loginSocial(provider)
             .then((result) => {
                 // const user = result?.user;
                 // console.log(user);
+                saveUserOnDb(result?.user);
+                navigate("/");
             }).catch((error) => {
                 // const errorCode = error.code;
                 // const errorMessage = error.message;
