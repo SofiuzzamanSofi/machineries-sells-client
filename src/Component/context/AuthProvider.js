@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
-import app from '../firebase/firebase.config';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import app from '../Firebase/firebase.init';
+
 
 const AuthContext = createContext();
 const auth = getAuth(app)
@@ -12,7 +13,7 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    // console.log(user);
+    console.log(user);
 
     const createNewUser = (email, password) => {
         setLoading(true);
@@ -24,6 +25,10 @@ const AuthProvider = ({ children }) => {
     const login = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
+    };
+    const loginSocial = (provider) => {
+        setLoading(true);
+        return signInWithPopup(auth, provider);
     };
     const logOut = () => {
         setLoading(true);
@@ -38,7 +43,7 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, []);
 
-    const authInfo = { createNewUser, login, user, setUser, loading, setLoading, logOut, updateUser };
+    const authInfo = { createNewUser, login, user, setUser, loading, setLoading, logOut, updateUser, loginSocial };
 
 
 

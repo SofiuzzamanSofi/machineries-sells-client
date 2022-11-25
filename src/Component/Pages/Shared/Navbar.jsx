@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../assets/logo.JPG";
+import { AuthContext } from '../../context/AuthProvider';
 
 const Navbar = () => {
 
-
+    const { logOut, user } = useContext(AuthContext);
 
 
 
@@ -41,7 +42,11 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="/" className="btn btn-outline">Sign In</Link>
+                {user?.uid ?
+                    <Link to="/signin" className="btn btn-outline hover:btn-primary" onClick={logOut}>Sign Out</Link>
+                    :
+                    <Link to="/signin" className="btn btn-outline hover:btn-primary">Sign In</Link>
+                }
             </div>
         </div>
     );

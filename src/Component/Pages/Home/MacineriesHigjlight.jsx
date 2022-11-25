@@ -19,7 +19,7 @@ const MachineriesHighlight = () => {
                         we provide high quality of buyers <strong className='text-gray-900'> Satisfaction</strong>
                         , We Promised you to give my best and best.
                     </p>
-                    <button className="btn hover:btn-info">Second Hand Category</button>
+                    <button className="btn hover:btn-primary">Second Hand Category</button>
                 </div>
             </div>
         </div>
