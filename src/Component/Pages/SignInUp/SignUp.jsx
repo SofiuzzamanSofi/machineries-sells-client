@@ -13,13 +13,25 @@ const SignUp = () => {
     const { createNewUser, updateUser } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm(); //useForm react hook ....
     const [signUpError, setSignUpError] = useState("");
-    const [createUserEmail, setCreateUserEmail] = useState("");
 
 
     // token customs hooks------
+    const [createUserEmail, setCreateUserEmail] = useState("");
     const [token] = useToken(createUserEmail);
     const navigate = useNavigate();
 
+
+
+    // check admin or user function --
+    const [isSeller, setIsSeller] = useState(false)
+    const [seller, setSeller] = useState(false)
+    const handleChecked = (e) => {
+        setIsSeller(false);
+        setSeller(!seller);
+        if (e.target.name === "seller") {
+            setIsSeller(true);
+        }
+    };
 
     // signin update name, send email verify  function----------------
     const handleSignUp = data => {
@@ -71,6 +83,9 @@ const SignUp = () => {
 
     // save user on database ---
     const saveDbOnUser = user => {
+        if (isSeller) {
+            user.role = "seller"
+        };
         axios({
             method: "POST",
             url: "http://localhost:5000/user",
@@ -96,8 +111,6 @@ const SignUp = () => {
         // WARNING IS GIVVEN FROM HERE---
         navigate("/");
     };
-
-
 
 
     return (
@@ -140,6 +153,19 @@ const SignUp = () => {
                                 type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                             {errors?.password ? <p className='text-[10px] text-red-600'>{errors?.password?.message}</p> : ""}
                             {signUpError && <p className='text-[10px] text-red-600'>{signUpError}</p>}
+                        </div>
+                        <div className="space-y-2">
+                            <div className="flex justify-between">
+                                <div className="flex justify-between">
+                                    <span>
+                                        Buyer   <input type="checkbox" name="buyer" id="buyer" aria-label="buyer" checked={!seller} onClick={handleChecked} readOnly />
+                                    </span>
+                                    <span className='px-2'> </span>
+                                    <span>
+                                        Seller   <input type="checkbox" name="seller" id="seller" aria-label="seller" checked={seller} onClick={handleChecked} readOnly />
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">Sign Up</button>
