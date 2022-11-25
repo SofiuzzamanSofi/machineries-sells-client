@@ -1,31 +1,44 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
-import useToken from '../../hooks/useToken';
-import saveUserOnDb from './UserOnDb';
 
 
+// google auth provider-----
 const googleProvider = new GoogleAuthProvider();
+
+
 
 const Social = () => {
 
+
+
+
     const { loginSocial } = useContext(AuthContext);
-    const [createUserEmail, setCreateUserEmail] = useState("");
-
-
-    // token customes hooks ---
-    const [token] = useToken(createUserEmail);
     const navigate = useNavigate();
 
+
+    // social login function on onclick---
     const loginWithSocial = provider => {
         loginSocial(provider)
             .then((result) => {
-                const user = result?.user;
-                console.log(user);
-                setCreateUserEmail(user?.email);
-                saveUserOnDb(user);
-                // navigate("/");
+                // const user = result?.user;
+                // saveUserOnDb(user);
+                // console.log(user);
+
+
+                // set user on DB , create jwt on backend & set JWT on localstorage--
+                fetch(`http://localhost:5000/jwt?email=${result?.user?.email}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            localStorage.setItem("accessToken", data?.data);
+                            toast.success(`wellcome ${result?.user?.displayName}`)
+                            navigate("/");
+                        };
+                    });
+
             }).catch((error) => {
                 // const errorCode = error.code;
                 // const errorMessage = error.message;
@@ -34,8 +47,6 @@ const Social = () => {
             });
     };
 
-    console.log("tokennn:::", token)
-    console.log("tokennn:::", createUserEmail)
 
 
     return (
