@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -13,8 +14,7 @@ const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm(); //useForm react hook ....
     const [signUpError, setSignUpError] = useState("");
     const [createUserEmail, setCreateUserEmail] = useState("");
-    // IMAGE BB HOT KEY --
-    const imageHostKey = process.env.REACT_APP_imgbb_key;
+
 
     // token customs hooks------
     const [token] = useToken(createUserEmail);
@@ -28,66 +28,74 @@ const SignUp = () => {
 
         // host image on imgbb --
         const image = data.image[0];
-        console.log(image);
+        // IMAGE BB HOT KEY --
+        const imageHostingKey = process.env.REACT_APP_imgbb_key;
+        const formData = new FormData();
+        formData.append("image", image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`
+        fetch(url, {
+            method: "POST",
+            body: formData,
+        }).then(res => res.json())
+            .then(imageInfo => {
+                // console.log(imageInfo)
+                if (imageInfo?.success) {
+                    const img = imageInfo?.data?.url;
 
 
+                    // create user function --
+                    createNewUser(data.email, data.password)
+                        .then(result => {
+                            const user = result.user;
+                            const userInfo = {
+                                displayName: data.name,
+                                photoURL: img
+                            };
+                            // console.log(userInfo);
+                            updateUser(userInfo)
+                                .then(() => {
+                                    saveDbOnUser(user);
+                                })
+                                .catch(error => {
+                                    setSignUpError(error.message);
 
-        createNewUser(data.email, data.password)
-            .then(result => {
-                const user = result.user;
-                const userInfo = {
-                    displayName: data.name,
-                    // photoURL: ""
-                };
-                // console.log(userInfo);
-                updateUser(userInfo)
-                    .then(() => {
-                        // console.log(user);
-                        // saveUser(user?.displayName, user?.email);
-
-
-
-                        // save user on database ---
-                        saveUserOnDb(user);
-
-                        // set user on token ---
-                        setCreateUserEmail(user?.email);
-                    })
-                    .catch(error => {
-                        setSignUpError(error.message);
-
-                    });
-                toast.success("User Created Successfully");
-            }).catch(error => {
-                setSignUpError(error.message);
-
-            });
+                                });
+                            toast.success("User Created Successfully");
+                        }).catch(error => {
+                            setSignUpError(error.message);
+                        });
+                }
+            })
+            .catch(error => console.log("error imageBB:", error));
     };
 
+    // save user on database ---
+    const saveDbOnUser = user => {
+        axios({
+            method: "POST",
+            url: "http://localhost:5000/user",
+            data: {
+                displayName: user?.displayName,
+                email: user?.email,
+                role: user?.role,
+            }
+        }).then(res => {
 
-    // // save user to database -----------
-    // const saveUser = (name, email) => {
-    //     const user = { name, email };
-    //     fetch("https://doctors-server-seven.vercel.app/users", {
-    //         method: "POST",
-    //         headers: {
-    //             "content-type": "application/json"
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
+            if (res?.data?.success) {
+                setCreateUserEmail(user?.email);
+            } else {
+                // console.log(res?.data?.success)
+                return false;
+            };
+        });
+    }
 
 
-    //         });
-    // };
 
     if (token) {
-
-
         // WARNING IS GIVVEN FROM HERE---
         navigate("/");
-    }
+    };
 
 
 

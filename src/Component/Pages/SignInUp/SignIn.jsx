@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -41,12 +41,13 @@ const SignIn = () => {
             });
     };
 
-    if (token) {
-        // console.log("navigate from loging token under loaging page")
 
+    // useEffect(() => {
+    if (token) {
         // WARNING IS GIVVEN FROM HERE---
         navigate(from, { replace: true });
     };
+    // }, [loginUserEmail, token]);
 
 
 

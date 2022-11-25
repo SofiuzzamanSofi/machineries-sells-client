@@ -1,8 +1,10 @@
+import axios from 'axios';
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 
 // google auth provider-----
@@ -13,9 +15,12 @@ const googleProvider = new GoogleAuthProvider();
 const Social = () => {
 
 
-
-
     const { loginSocial } = useContext(AuthContext);
+    const [createUserEmail, setCreateUserEmail] = useState("");
+
+
+    // token customs hooks------
+    const [token] = useToken(createUserEmail);
     const navigate = useNavigate();
 
 
@@ -24,21 +29,7 @@ const Social = () => {
         loginSocial(provider)
             .then((result) => {
                 // const user = result?.user;
-                // saveUserOnDb(user);
-                // console.log(user);
-
-
-                // set user on DB , create jwt on backend & set JWT on localstorage--
-                fetch(`http://localhost:5000/jwt?email=${result?.user?.email}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.success) {
-                            localStorage.setItem("accessToken", data?.data);
-                            toast.success(`wellcome ${result?.user?.displayName}`)
-                            navigate("/");
-                        };
-                    });
-
+                saveDbOnUser(result?.user);
             }).catch((error) => {
                 // const errorCode = error.code;
                 // const errorMessage = error.message;
@@ -47,7 +38,33 @@ const Social = () => {
             });
     };
 
+    // save user on database ---
+    const saveDbOnUser = user => {
+        axios({
+            method: "POST",
+            url: "http://localhost:5000/user",
+            data: {
+                displayName: user?.displayName,
+                email: user?.email,
+                role: user?.role,
+            }
+        }).then(res => {
 
+            if (res?.data?.success) {
+                setCreateUserEmail(user?.email);
+            } else {
+                // console.log(res?.data?.success)
+                return false;
+            };
+        });
+    }
+
+
+
+    if (token) {
+        // WARNING IS GIVVEN FROM HERE---
+        navigate("/");
+    };
 
     return (
         <div className="my-6 space-y-4">

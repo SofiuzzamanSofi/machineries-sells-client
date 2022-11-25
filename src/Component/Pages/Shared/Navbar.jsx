@@ -5,13 +5,14 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const Navbar = () => {
 
-    const { logOut, user } = useContext(AuthContext);
+    const { logOut, user, setUser } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()
             .then(() => {
                 // Sign-out successful.
                 localStorage.removeItem("accessToken");
+                setUser(null);
             }).catch((error) => {
                 // An error happened.
                 console.log(error)
