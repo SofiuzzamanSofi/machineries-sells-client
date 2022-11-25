@@ -7,7 +7,16 @@ const Navbar = () => {
 
     const { logOut, user } = useContext(AuthContext);
 
-
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                // Sign-out successful.
+                localStorage.removeItem("accessToken");
+            }).catch((error) => {
+                // An error happened.
+                console.log(error)
+            });
+    }
 
 
     const navItems = <>
@@ -43,7 +52,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {user?.uid ?
-                    <Link to="/signin" className="btn btn-outline hover:btn-primary" onClick={logOut}>Sign Out</Link>
+                    <Link to="/signin" className="btn btn-outline hover:btn-primary" onClick={handleLogOut}>Sign Out</Link>
                     :
                     <Link to="/signin" className="btn btn-outline hover:btn-primary">Sign In</Link>
                 }

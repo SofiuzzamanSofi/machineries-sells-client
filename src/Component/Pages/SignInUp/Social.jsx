@@ -2,6 +2,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import useToken from '../../hooks/useToken';
 import saveUserOnDb from './UserOnDb';
 
 
@@ -10,17 +11,21 @@ const googleProvider = new GoogleAuthProvider();
 const Social = () => {
 
     const { loginSocial } = useContext(AuthContext);
+    const [createUserEmail, setCreateUserEmail] = useState("");
 
 
+    // token customes hooks ---
+    const [token] = useToken(createUserEmail);
     const navigate = useNavigate();
 
     const loginWithSocial = provider => {
         loginSocial(provider)
             .then((result) => {
-                // const user = result?.user;
-                // console.log(user);
-                saveUserOnDb(result?.user);
-                navigate("/");
+                const user = result?.user;
+                console.log(user);
+                setCreateUserEmail(user?.email);
+                saveUserOnDb(user);
+                // navigate("/");
             }).catch((error) => {
                 // const errorCode = error.code;
                 // const errorMessage = error.message;
@@ -29,9 +34,11 @@ const Social = () => {
             });
     };
 
+    console.log("tokennn:::", token)
+    console.log("tokennn:::", createUserEmail)
+
 
     return (
-
         <div className="my-6 space-y-4">
             <button
                 onClick={() => {
