@@ -3,6 +3,7 @@ import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import ButtonPublic from '../Shared/ButtonPublic/ButtonPublic';
 
 const Categories = () => {
 
@@ -24,9 +25,9 @@ const Categories = () => {
             <div>
                 <p className='text-xl font-semibold'>Browse items by category</p>
             </div>
-            <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3 cursor-pointer hover:'>
+            <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3 cursor-pointer'>
                 {categories?.map(category => <div key={category._id}>
-                    <div className="card w-96 bg-base-100 shadow-xl hover:bg-sky-200" title='click to see by category'>
+                    <div className="card w-96 bg-base-100 shadow-xl hover:bg-sky-200  hover:scale-125" title='click to see by category'>
                         <Link to={`/category/${category?.categorySize}`} >
                             <figure className="px-10 pt-10">
                                 <img src={category?.categoryImage} alt="Shoes" className="rounded-xl w-72 h-48" />
@@ -40,7 +41,7 @@ const Categories = () => {
                 </div>)}
             </div>
             <div>
-                <Link to="/category/all"> <button className='btn hover:btn-info'>See All Products</button> </Link>
+                <Link to="/category/all"> <ButtonPublic size={"hover:scale-125"}>See All Products</ButtonPublic> </Link>
             </div>
         </div>
     );

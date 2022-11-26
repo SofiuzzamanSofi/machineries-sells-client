@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GoVerified } from 'react-icons/go';
+import ButtonPublic from '../../Shared/ButtonPublic/ButtonPublic';
+import ModalPublic from '../../Shared/ModalPublic/ModalPublic';
 
 const ProductsCard = ({ product }) => {
+
+    const [modalOpen, setModalOpen] = useState(false);
     const { categoryCompany, categorySize, categorySelf, productName, madeOf, ignitionMode, speedCoolingCylinder, pressureImpulse, pistonMovement, fuel, details, picture, location, resalePrice, originalPrice, mfYear, yearOfUse, dateOfPost, timeOfPost, sellerName, sellerEmail, sellerVerify, name, userInfo } = product;
+    const noPhotFoundUrl = "https://e7.pngegg.com/pngimages/829/733/png-clipart-logo-brand-product-trademark-font-not-found-logo-brand.png";
     // console.log(product);
 
-    const noPhotFoundUrl = "https://e7.pngegg.com/pngimages/829/733/png-clipart-logo-brand-product-trademark-font-not-found-logo-brand.png";
-
+    const handleModal = () => {
+        console.log("modal")
+        setModalOpen(!modalOpen)
+    };
 
     return (
         <div className='shadow-md flex flex-col justify-center items-center md:block mx-2 my-6'>
             <div className='p-2'>
                 <div className='lg:flex gap-6 '>
                     <div >
-                        <img className=' w-72 h-48 rounded-lg text-center m-auto' src={picture ? picture : noPhotFoundUrl} alt="" />
+                        <img className=' w-72 h-48 rounded-lg text-center m-auto hover:scale-125' src={picture ? picture : noPhotFoundUrl} alt="" />
                     </div>
                     <div>
                         <p className='text-lg underline'>Users Information:</p>
@@ -39,8 +46,8 @@ const ProductsCard = ({ product }) => {
                                 <p><span>Fuel Type: </span><span>{fuel}</span></p>
                             </div>
                             <div>
-                                <p><span>Price: </span><span className='font-bold text-green-500'>{resalePrice}</span></p>
-                                <p><span>Original Price: </span><span>{originalPrice}</span></p>
+                                <p><span>Price: $</span><span className='font-bold text-green-500'>{resalePrice}</span></p>
+                                <p><span>Original Price: $</span><span>{originalPrice}</span></p>
                                 <p><span>M.A.F.: </span><span>{mfYear}</span></p>
                                 <p><span>Years Of Used: </span><span>{yearOfUse}</span></p>
                                 <p><span>Fuel Type: </span><span>{fuel}</span></p>
@@ -57,9 +64,12 @@ const ProductsCard = ({ product }) => {
                     <p className='text-justify'>{details}</p>
                 </div>
                 <div>
-                    <button className='btn hover:btn-info w-full'>Book now</button>
+                    <label onClick={handleModal} htmlFor="modal-public" className="btn w-full hover:btn-info active:btn-info">Book now</label>
+                    {/* <ButtonPublic size={"w-full"}>Book now</ButtonPublic> */}
+                    {/* <button className='btn hover:btn-info '>Book now</button> */}
                 </div>
             </div>
+            {modalOpen && <ModalPublic modalOpen={modalOpen} setModalOpen={setModalOpen} product={product} />}
         </div>
     );
 };

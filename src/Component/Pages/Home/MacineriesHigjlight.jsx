@@ -1,5 +1,6 @@
 import React from 'react';
 import image from "../../assets/27496.png"
+import ButtonPublic from '../Shared/ButtonPublic/ButtonPublic';
 
 const MachineriesHighlight = () => {
     return (
@@ -19,7 +20,7 @@ const MachineriesHighlight = () => {
                         we provide high quality of buyers <strong className='text-gray-900'> Satisfaction</strong>
                         , We Promised you to give my best and best.
                     </p>
-                    <button className="btn hover:btn-info">Second Hand Category</button>
+                    <ButtonPublic size={"hover:scale-125"}>Second Hand Category</ButtonPublic>
                 </div>
             </div>
         </div>
