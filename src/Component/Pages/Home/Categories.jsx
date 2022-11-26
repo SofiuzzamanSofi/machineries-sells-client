@@ -40,7 +40,7 @@ const Categories = () => {
                 </div>)}
             </div>
             <div>
-                <button className='btn'>See All Products</button>
+                <Link to="/category/all"> <button className='btn hover:btn-info'>See All Products</button> </Link>
             </div>
         </div>
     );

@@ -2,9 +2,10 @@ import axios from 'axios';
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import useToken from '../../hooks/useToken';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 
 // google auth provider-----
@@ -15,14 +16,16 @@ const googleProvider = new GoogleAuthProvider();
 const Social = () => {
 
 
-    const { loginSocial } = useContext(AuthContext);
+    const { loginSocial, loading } = useContext(AuthContext);
     const [createUserEmail, setCreateUserEmail] = useState("");
 
 
     // token customs hooks------
-    const [token] = useToken(createUserEmail);
-    const navigate = useNavigate();
-
+    const [token, tokenLoading] = useToken(createUserEmail);
+    // location navigation ---
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     // social login function on onclick---
     const loginWithSocial = provider => {
@@ -49,21 +52,29 @@ const Social = () => {
                 role: user?.role,
             }
         }).then(res => {
-
             if (res?.data?.success) {
-                setCreateUserEmail(user?.email);
             } else {
                 // console.log(res?.data?.success)
-                return false;
             };
+            setCreateUserEmail(user?.email);
+            navigate(from, { replace: true });
         });
-    }
+    };
 
+
+
+    // if (loading || tokenLoading) {
+    //     return <LoadingSpinner />
+    // } else {
+
+    // }
+    // console.log(tokenLoading);
+    // console.log("lloding", loading);
 
 
     if (token) {
-        // WARNING IS GIVVEN FROM HERE---
-        navigate("/");
+        // WARNING IS GIVVEN FROM HERE--- ************
+        navigate(from, { replace: true });
     };
 
     return (

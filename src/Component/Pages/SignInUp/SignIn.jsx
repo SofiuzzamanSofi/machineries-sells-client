@@ -4,19 +4,20 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import useToken from '../../hooks/useToken';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import Social from './Social';
 
 const SignIn = () => {
 
 
-    const { login } = useContext(AuthContext);
+    const { login, loading } = useContext(AuthContext);
     const [loginError, setLoginError] = useState("");
     const [loginUserEmail, setLoginUserEmail] = useState("");
     const { register, handleSubmit, formState: { errors } } = useForm();
 
 
     // token customs hooks---
-    const [token] = useToken(loginUserEmail);
+    const [token, tokenLoading] = useToken(loginUserEmail);
 
 
     // location navigation ---
@@ -34,6 +35,7 @@ const SignIn = () => {
                 setLoginUserEmail(user?.email);
                 // toast.success("User Login Successfully.")
                 toast.success("User Login Successfully.", user?.displayName);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error)
@@ -42,12 +44,21 @@ const SignIn = () => {
     };
 
 
-    // useEffect(() => {
-    if (token) {
-        // WARNING IS GIVVEN FROM HERE---
-        navigate(from, { replace: true });
-    };
-    // }, [loginUserEmail, token]);
+
+    // if (tokenLoading) {
+    //     return <LoadingSpinner />
+    // } else {
+
+    // }
+    // console.log(tokenLoading);
+    // console.log("lloding", loading);
+
+
+    // if (token) {
+    //     // WARNING IS GIVVEN FROM HERE--- ************
+    //     navigate(from, { replace: true });
+    // };
+
 
 
 

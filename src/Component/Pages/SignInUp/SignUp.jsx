@@ -5,19 +5,19 @@ import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import useToken from '../../hooks/useToken';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import Social from './Social';
-import saveUserOnDb from './UserOnDb';
 
 const SignUp = () => {
 
-    const { createNewUser, updateUser } = useContext(AuthContext);
+    const { createNewUser, updateUser, loading } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm(); //useForm react hook ....
     const [signUpError, setSignUpError] = useState("");
 
 
     // token customs hooks------
     const [createUserEmail, setCreateUserEmail] = useState("");
-    const [token] = useToken(createUserEmail);
+    const [token, tokenLoading] = useToken(createUserEmail);
     const navigate = useNavigate();
 
 
@@ -106,9 +106,14 @@ const SignUp = () => {
     }
 
 
+    if (loading || tokenLoading) {
+        return <LoadingSpinner />
+    }
+    // console.log(tokenLoading);
+    // console.log("lloding", loading);
 
     if (token) {
-        // WARNING IS GIVVEN FROM HERE---
+        // WARNING IS GIVVEN FROM HERE--- *****
         navigate("/");
     };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useLocation } from 'react-router-dom';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 import ProductsCard from '../ProductsCard/ProductsCard';
 
@@ -7,6 +7,8 @@ const Products = () => {
 
     const { data: products } = useLoaderData();
     // console.log(products);
+    const location = useLocation();
+    // console.log(location?.pathname)
 
     if (!products) {
         return <LoadingSpinner />
@@ -14,13 +16,24 @@ const Products = () => {
     return (
         <div>
             <div>
-                <p className='text-lg '>Found <strong>{products[0]?.categorySize}</strong> Size Category Product: <strong>{products.length}</strong></p>
+                <p className='text-lg text-center md:text-4xl my-4'>
+                    {
+                        location?.pathname === "/category/all" ?
+                            "Show All "
+                            :
+                            `Found ${products[0]?.categorySize} Size Category`
+                    }
+
+
+                    : <strong>{products.length}</strong> Product</p>
             </div>
-            <div>
+            <div className='grid gap-6 md:grid-cols-2'>
                 {products?.map(product => <ProductsCard
                     key={product?._id}
                     product={product}
-                >h</ProductsCard>)}
+                >
+
+                </ProductsCard>)}
             </div>
         </div>
     );

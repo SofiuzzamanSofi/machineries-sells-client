@@ -53,9 +53,9 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {user?.uid ?
-                    <Link to="/signin" className="btn btn-outline hover:btn-primary" onClick={handleLogOut}>Sign Out</Link>
+                    <Link to="/signin" className="btn btn-outline hover:btn-info" onClick={handleLogOut}>Sign Out</Link>
                     :
-                    <Link to="/signin" className="btn btn-outline hover:btn-primary">Sign In</Link>
+                    <Link to="/signin" className="btn btn-outline hover:btn-info">Sign In</Link>
                 }
             </div>
         </div>
