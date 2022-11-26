@@ -1,10 +1,11 @@
+import axios from 'axios';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider';
 import ButtonPublic from '../ButtonPublic/ButtonPublic';
 
-const ModalPublic = ({ modalOpen, setModalOpen, product }) => {
-    const { categoryCompany, categorySize, categorySelf, productName, madeOf, ignitionMode, speedCoolingCylinder, pressureImpulse, pistonMovement, fuel, details, picture, location, resalePrice, originalPrice, mfYear, yearOfUse, dateOfPost, timeOfPost, sellerName, sellerEmail, sellerVerify, name, userInfo } = product;
+const ModalPublic = ({ setModalOpen, product }) => {
+    const { productName, resalePrice, sellerEmail, } = product;
     const { user } = useContext(AuthContext);
 
     const handleModal = (event) => {
@@ -20,11 +21,21 @@ const ModalPublic = ({ modalOpen, setModalOpen, product }) => {
             buyerNumber: event?.target?.number?.value,
             buyerLocation: event?.target?.location?.value,
         };
-        console.log(booking)
 
-        setModalOpen(false)
-        toast.success(`Dear ${user?.displayName}, Your Product is Successfully Booked.`)
-    }
+        axios.post("http://localhost:5000/bookings", booking)
+            .then(data => {
+                if (data?.data?.success) {
+                    // console.log(data?.data);
+                    toast.success(data?.data?.message);
+                    setModalOpen(false);
+                } else { toast.error(data?.data?.message) };
+            })
+            .catch(error => console.log("error from axios catch", error))
+    };
+
+
+
+
     return (
         <div>
             <input type="checkbox" id="modal-public" className="modal-toggle" />

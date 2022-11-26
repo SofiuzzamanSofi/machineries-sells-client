@@ -20,7 +20,7 @@ const MachineriesHighlight = () => {
                         we provide high quality of buyers <strong className='text-gray-900'> Satisfaction</strong>
                         , We Promised you to give my best and best.
                     </p>
-                    <ButtonPublic size={"hover:scale-125"}>Second Hand Category</ButtonPublic>
+                    <ButtonPublic size={"hover:scale-110"}>Second Hand Category</ButtonPublic>
                 </div>
             </div>
         </div>

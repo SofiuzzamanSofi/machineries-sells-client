@@ -27,7 +27,7 @@ const Categories = () => {
             </div>
             <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3 cursor-pointer'>
                 {categories?.map(category => <div key={category._id}>
-                    <div className="card w-96 bg-base-100 shadow-xl hover:bg-sky-200  hover:scale-125" title='click to see by category'>
+                    <div className="card w-96 bg-base-100 shadow-xl hover:bg-sky-200  hover:scale-110" title='click to see by category'>
                         <Link to={`/category/${category?.categorySize}`} >
                             <figure className="px-10 pt-10">
                                 <img src={category?.categoryImage} alt="Shoes" className="rounded-xl w-72 h-48" />

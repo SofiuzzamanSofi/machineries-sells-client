@@ -72,10 +72,10 @@ const Social = () => {
     // console.log("lloding", loading);
 
 
-    if (token) {
-        // WARNING IS GIVVEN FROM HERE--- ************
-        navigate(from, { replace: true });
-    };
+    // if (token) {
+    //     // WARNING IS GIVVEN FROM HERE--- ************
+    //     navigate(from, { replace: true });
+    // };
 
     return (
         <div className="my-6 space-y-4">

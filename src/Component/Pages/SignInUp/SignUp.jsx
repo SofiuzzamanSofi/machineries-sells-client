@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import useToken from '../../hooks/useToken';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
@@ -18,7 +18,9 @@ const SignUp = () => {
     // token customs hooks------
     const [createUserEmail, setCreateUserEmail] = useState("");
     const [token, tokenLoading] = useToken(createUserEmail);
-    const navigate = useNavigate();
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
 
 
@@ -98,6 +100,7 @@ const SignUp = () => {
 
             if (res?.data?.success) {
                 setCreateUserEmail(user?.email);
+                navigate(from, { replace: true });
             } else {
                 // console.log(res?.data?.success)
                 return false;
@@ -112,10 +115,11 @@ const SignUp = () => {
     // console.log(tokenLoading);
     // console.log("lloding", loading);
 
-    if (token) {
-        // WARNING IS GIVVEN FROM HERE--- *****
-        navigate("/");
-    };
+    // if (token) {
+    //     // WARNING IS GIVVEN FROM HERE--- *****
+    //     // navigate("/");
+    //     navigate(from, { replace: true });
+    // };
 
 
     return (

@@ -23,7 +23,11 @@ const Navbar = () => {
 
     const navItems = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/dashboard">Dashboard</Link></li>
+        {
+            user?.uid ? <>
+                <li><Link to="/dashboard">Dashboard</Link></li>
+            </> : ""
+        }
         <li><Link to="/blogs">Blogs</Link></li>
         <li><Link to="/contactUs">Contact Us</Link></li>
     </>

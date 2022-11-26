@@ -14,10 +14,10 @@ const ProductsCard = ({ product }) => {
 
     return (
         <div className='shadow-md flex flex-col justify-center items-center md:block mx-2 my-6'>
-            <div className='p-2'>
+            <div className='p-6'>
                 <div className='lg:flex gap-6 '>
                     <div >
-                        <img className=' w-72 h-48 rounded-lg text-center m-auto hover:scale-125' src={picture ? picture : noPhotFoundUrl} alt="" />
+                        <img className=' w-72 h-48 rounded-lg text-center m-auto' src={picture ? picture : noPhotFoundUrl} alt="" />
                     </div>
                     <div>
                         <p className='text-lg underline'>Users Information:</p>
