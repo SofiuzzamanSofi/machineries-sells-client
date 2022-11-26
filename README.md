@@ -2,6 +2,13 @@
 
 site type: Server side
 
+Admin: anawarul01717656827@gmail.com
+
+Seller: obamaike@gmail.com
+
+User/Buyer: vladimirputin@gmail.com
+
+Password for all:  AA$#11aa
 
 Live site Link-
 

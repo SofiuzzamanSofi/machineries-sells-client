@@ -52,7 +52,7 @@ const Navbar = () => {
                     {navItems}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end" title={user?.displayName}>
                 {user?.uid ?
                     <Link to="/signin" className="btn btn-outline hover:btn-info" onClick={handleLogOut}>Sign Out</Link>
                     :
