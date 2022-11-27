@@ -2,7 +2,7 @@
 
 site type: Server side
 
-Admin: anawarul01717656827@gmail.com
+Admin: xijinpingchina@gmail.com
 
 Seller: obamaike@gmail.com
 

@@ -3,45 +3,45 @@ import React from 'react';
 const Blogs = () => {
     return (
         <div>
-            <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-                <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
-                    <div class="flex flex-col mb-16 sm:text-center">
-                        <a href="/" class="mb-6 sm:mx-auto">
-                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-50">
-                                <svg class="w-10 h-10 text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
+            <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
+                    <div className="flex flex-col mb-16 sm:text-center">
+                        <a href="/" className="mb-6 sm:mx-auto">
+                            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-50">
+                                <svg className="w-10 h-10 text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
                                     <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
                                 </svg>
                             </div>
                         </a>
-                        <div class="max-w-xl md:mx-auto sm:text-center lg:max-w-2xl">
-                            <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-                                <span class="relative inline-block">
-                                    <svg viewBox="0 0 52 24" fill="currentColor" class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
+                        <div className="max-w-xl md:mx-auto sm:text-center lg:max-w-2xl">
+                            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+                                <span className="relative inline-block">
+                                    <svg viewBox="0 0 52 24" fill="currentColor" className="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block">
                                         <defs>
                                             <pattern id="ec5d8ef5-b853-4714-b94f-df28ec98eeb7" x="0" y="0" width=".135" height=".30"><circle cx="1" cy="1" r=".7"></circle></pattern>
                                         </defs>
                                         <rect fill="url(#ec5d8ef5-b853-4714-b94f-df28ec98eeb7)" width="52" height="24"></rect>
                                     </svg>
-                                    <span class="relative">Some</span>
+                                    <span className="relative">Some</span>
                                 </span>
                                 Blogs Questions and answer.
                             </h2>
                         </div>
                     </div>
-                    <div class="space-y-4">
-                        <div class="border rounded shadow-sm">
-                            <button type="button" aria-label="Open item" title="Open item" class="flex items-center justify-between w-full p-4 focus:outline-none">
-                                <p class="text-lg font-medium">What are the different ways to manage a state in a React application?</p>
-                                <div class="flex items-center justify-center w-8 h-8 border rounded-full">
+                    <div className="space-y-4">
+                        <div className="border rounded shadow-sm">
+                            <button type="button" aria-label="Open item" title="Open item" className="flex items-center justify-between w-full p-4 focus:outline-none">
+                                <p className="text-lg font-medium">What are the different ways to manage a state in a React application?</p>
+                                <div className="flex items-center justify-center w-8 h-8 border rounded-full">
 
-                                    <svg viewBox="0 0 24 24" class="w-3 text-gray-600 transition-transform duration-200">
+                                    <svg viewBox="0 0 24 24" className="w-3 text-gray-600 transition-transform duration-200">
                                         <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
                                     </svg>
                                 </div>
                             </button>
 
-                            <div class="p-4 pt-0">
-                                <p class="text-gray-700">The Four Kinds of React State to Manage.</p>
+                            <div className="p-4 pt-0">
+                                <p className="text-gray-700">The Four Kinds of React State to Manage.</p>
                                 <ul className='list-disc ml-4'>
                                     <li>Local state</li>
                                     <p> Local state is data we manage in one or another component.</p>
@@ -52,41 +52,41 @@ const Blogs = () => {
                                     <li>URL state</li>
                                     <p>Data that exists on our URLs, including the pathname and query parameters.</p>
                                 </ul>
-                                <p class="text-gray-700">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae.</p>
+                                <p className="text-gray-700">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae.</p>
 
                             </div>
 
                         </div>
-                        <div class="border rounded shadow-sm">
-                            <button type="button" aria-label="Open item" title="Open item" class="flex items-center justify-between w-full p-4 focus:outline-none">
-                                <p class="text-lg font-medium">How does prototypical inheritance work?</p>
-                                <div class="flex items-center justify-center w-8 h-8 border rounded-full">
-                                    <svg viewBox="0 0 24 24" class="w-3 text-gray-600 transition-transform duration-200 transform rotate-180">
+                        <div className="border rounded shadow-sm">
+                            <button type="button" aria-label="Open item" title="Open item" className="flex items-center justify-between w-full p-4 focus:outline-none">
+                                <p className="text-lg font-medium">How does prototypical inheritance work?</p>
+                                <div className="flex items-center justify-center w-8 h-8 border rounded-full">
+                                    <svg viewBox="0 0 24 24" className="w-3 text-gray-600 transition-transform duration-200 transform rotate-180">
                                         <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
                                     </svg>
                                 </div>
                             </button>
 
-                            <div class="p-4 pt-0">
-                                <p class="text-gray-700">
+                            <div className="p-4 pt-0">
+                                <p className="text-gray-700">
                                     The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object. getPrototypeOf and Object.
                                 </p>
                             </div>
 
                         </div>
-                        <div class="border rounded shadow-sm">
-                            <button type="button" aria-label="Open item" title="Open item" class="flex items-center justify-between w-full p-4 focus:outline-none">
-                                <p class="text-lg font-medium">What is a unit test? Why should we write unit tests?</p>
-                                <div class="flex items-center justify-center w-8 h-8 border rounded-full">
-                                    <svg viewBox="0 0 24 24" class="w-3 text-gray-600 transition-transform duration-200 transform rotate-180">
+                        <div className="border rounded shadow-sm">
+                            <button type="button" aria-label="Open item" title="Open item" className="flex items-center justify-between w-full p-4 focus:outline-none">
+                                <p className="text-lg font-medium">What is a unit test? Why should we write unit tests?</p>
+                                <div className="flex items-center justify-center w-8 h-8 border rounded-full">
+                                    <svg viewBox="0 0 24 24" className="w-3 text-gray-600 transition-transform duration-200 transform rotate-180">
                                         <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
                                     </svg>
                                 </div>
                             </button>
 
-                            <div class="p-4 pt-0">
+                            <div className="p-4 pt-0">
                                 <p><strong>Unit Test:</strong></p>
-                                <p class="text-gray-700">
+                                <p className="text-gray-700">
                                     The main objective of unit testing is to isolate written code to test and determine if it works as intended. Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages.
                                 </p>
                                 <p><strong>Why we use Unit Test:</strong></p>
@@ -100,17 +100,17 @@ const Blogs = () => {
                             </div>
 
                         </div>
-                        <div class="border rounded shadow-sm">
-                            <button type="button" aria-label="Open item" title="Open item" class="flex items-center justify-between w-full p-4 focus:outline-none">
-                                <p class="text-lg font-medium">React vs. Angular vs. Vue?</p>
-                                <div class="flex items-center justify-center w-8 h-8 border rounded-full">
-                                    <svg viewBox="0 0 24 24" class="w-3 text-gray-600 transition-transform duration-200 transform rotate-180">
+                        <div className="border rounded shadow-sm">
+                            <button type="button" aria-label="Open item" title="Open item" className="flex items-center justify-between w-full p-4 focus:outline-none">
+                                <p className="text-lg font-medium">React vs. Angular vs. Vue?</p>
+                                <div className="flex items-center justify-center w-8 h-8 border rounded-full">
+                                    <svg viewBox="0 0 24 24" className="w-3 text-gray-600 transition-transform duration-200 transform rotate-180">
                                         <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
                                     </svg>
                                 </div>
                             </button>
 
-                            <div class="p-4 pt-0 grid gap-4">
+                            <div className="p-4 pt-0 grid gap-4">
                                 <p>
                                     <strong> React: </strong> developed by Facebook, was initially released in 2013. Facebook uses React extensively in their products (Facebook, Instagram, and WhatsApp). Similar to Vue, the React developers also announce their newest version on the blog section of the React website.
                                 </p>

@@ -45,7 +45,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-link normal-case text-xl">
+                <Link to="/" className=" btn btn-link normal-case text-xl mx-0 px-0">
                     <img className='rounded w-full h-full z-50 md:hover:h-20 border-rose-800' src={logo} alt="" />
                 </Link>
             </div>
