@@ -13,7 +13,7 @@ const AddProduct = () => {
     // user from firebase--
     const { user, noPhotFoundUrl } = useContext(AuthContext);
     // user from database with role --admin/seller/etc---
-    const [currentUser] = useUser(user?.email);
+    const [currentUser] = useUser(user);
     const navigate = useNavigate();
 
     // get time and date ----

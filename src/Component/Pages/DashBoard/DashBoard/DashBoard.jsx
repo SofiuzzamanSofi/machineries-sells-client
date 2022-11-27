@@ -8,7 +8,7 @@ const DashBoard = () => {
 
     const { user } = useContext(AuthContext);
     // const [userFromDb, setUserFromDb] = useState(null);
-    const [exampleUser] = useUser(user?.email);
+    const [exampleUser] = useUser(user);
     // console.log("dashboard", exampleUser);
 
 
