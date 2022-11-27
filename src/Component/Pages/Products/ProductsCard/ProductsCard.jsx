@@ -3,11 +3,10 @@ import { GoVerified } from 'react-icons/go';
 import ButtonPublic from '../../Shared/ButtonPublic/ButtonPublic';
 import ModalPublic from '../../Shared/ModalPublic/ModalPublic';
 
-const ProductsCard = ({ product }) => {
+const ProductsCard = ({ product, noPhotFoundUrl }) => {
 
     const [modalOpen, setModalOpen] = useState(true);
-    const { categoryCompany, categorySize, categorySelf, productName, madeOf, ignitionMode, speedCoolingCylinder, pressureImpulse, pistonMovement, fuel, details, picture, location, resalePrice, originalPrice, mfYear, yearOfUse, dateOfPost, timeOfPost, sellerName, sellerEmail, sellerVerify, name, userInfo } = product;
-    const noPhotFoundUrl = "https://e7.pngegg.com/pngimages/829/733/png-clipart-logo-brand-product-trademark-font-not-found-logo-brand.png";
+    const { categoryCompany, categorySize, categorySelf, productName, madeOf, ignitionMode, speedCoolingCylinder, pressureImpulse, pistonMovement, fuel, details, picture, location, resalePrice, originalPrice, mfYear, yearOfUse, dateOfPost, timeOfPost, sellerName, sellerEmail, sellerVerify, name, userInfo, sellerNumber } = product;
     // console.log(product);
 
 
@@ -25,7 +24,7 @@ const ProductsCard = ({ product }) => {
                         <p><span>Email: </span><span>{sellerEmail}</span></p>
                         <p><span>Location: </span><span>{location}</span></p>
                         <p className='flex items-center'><span>Verified: </span> <span>{sellerVerify ? <GoVerified className='text-blue-600' /> : ""} </span></p>
-                        <p><span>Number: </span><span></span></p>
+                        <p><span>Number: </span><span>{sellerNumber ? sellerNumber : ""}</span></p>
                         <p><span>Posted : </span> <span> {timeOfPost}</span>  <span>{dateOfPost} </span></p>
                     </div>
                 </div>

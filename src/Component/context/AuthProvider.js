@@ -43,7 +43,8 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, []);
 
-    const authInfo = { createNewUser, login, user, setUser, loading, setLoading, logOut, updateUser, loginSocial };
+    const noPhotFoundUrl = "https://e7.pngegg.com/pngimages/829/733/png-clipart-logo-brand-product-trademark-font-not-found-logo-brand.png";
+    const authInfo = { createNewUser, login, user, setUser, loading, setLoading, logOut, updateUser, loginSocial, noPhotFoundUrl };
 
 
 
