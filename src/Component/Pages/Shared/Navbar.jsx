@@ -22,18 +22,18 @@ const Navbar = () => {
 
 
     const navItems = <>
-        <li><Link to="/">Home</Link></li>
+        <li><Link to="/" className='hover:scale-110'>Home</Link></li>
         {
             user?.uid ? <>
-                <li><Link to="/dashboard">Dashboard</Link></li>
+                <li><Link to="/dashboard" className='hover:scale-110'>Dashboard</Link></li>
             </> : ""
         }
-        <li><Link to="/blogs">Blogs</Link></li>
-        <li><Link to="/contactUs">Contact Us</Link></li>
+        <li><Link to="/blogs" className='hover:scale-110'>Blogs</Link></li>
+        <li><Link to="/contactUs" className='hover:scale-110'>Contact Us</Link></li>
     </>
 
     return (
-        <div className="navbar bg-base-100 mb-8">
+        <div className="navbar bg-base-100 pb-8 bg-gray-100 dark:bg-gray-900 text-gray-800  dark:text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -58,7 +58,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end" title={user?.displayName}>
                 {user?.uid ?
-                    <Link to="/signin" className="btn btn-outline hover:btn-info" onClick={handleLogOut}>Sign Out</Link>
+                    <Link to="/signin" className="" onClick={handleLogOut}><ButtonPublic size={"hover:scale-110"}>Sign Out</ButtonPublic></Link>
                     :
                     <Link to="/signin"><ButtonPublic>Sign In</ButtonPublic></Link>
                 }

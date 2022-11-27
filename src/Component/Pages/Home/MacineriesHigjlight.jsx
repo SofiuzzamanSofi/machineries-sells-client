@@ -4,7 +4,7 @@ import ButtonPublic from '../Shared/ButtonPublic/ButtonPublic';
 
 const MachineriesHighlight = () => {
     return (
-        <div className="hero  bg-base-200">
+        <div className="hero  bg-base-100 dark:bg-gray-900 text-gray-800  dark:text-white">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <img src={image} className="max-w-sm rounded-lg shadow-md w-full" alt='machineries-engine' />
                 <div>

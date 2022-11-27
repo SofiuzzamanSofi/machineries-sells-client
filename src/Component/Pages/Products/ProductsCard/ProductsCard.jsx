@@ -13,7 +13,7 @@ const ProductsCard = ({ product }) => {
 
 
     return (
-        <div className='shadow-md flex flex-col justify-center items-center md:block mx-2 my-6'>
+        <div className='shadow-md dark:bg-gray-800 flex flex-col justify-center items-center md:block mx-2 my-6 rounded-md'>
             <div className='p-6'>
                 <div className='lg:flex gap-6 '>
                     <div >

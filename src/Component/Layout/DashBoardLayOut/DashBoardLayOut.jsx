@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import DashBoard from '../../Pages/DashBoard/DashBoard';
+import DashBoard from '../../Pages/DashBoard/DashBoard/DashBoard';
 import Footer from '../../Pages/Shared/Footer';
 import Navbar from '../../Pages/Shared/Navbar';
 

@@ -14,9 +14,9 @@ const Products = () => {
         return <LoadingSpinner />
     }
     return (
-        <div>
+        <div className='dark:bg-gray-900 text-gray-800  dark:text-white'>
             <div>
-                <p className='text-lg text-center md:text-4xl my-4'>
+                <p className='text-lg text-center md:text-4xl py-4'>
                     {
                         location?.pathname === "/category/all" ?
                             "Show All "

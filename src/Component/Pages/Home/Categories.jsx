@@ -21,13 +21,13 @@ const Categories = () => {
 
 
     return (
-        <div className='text-center grid gap-6'>
+        <div className='text-center grid gap-6 dark:bg-gray-900 text-gray-800  dark:text-white'>
             <div>
                 <p className='text-xl font-semibold'>Browse items by category</p>
             </div>
             <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3 cursor-pointer'>
                 {categories?.map(category => <div key={category._id}>
-                    <div className="card  bg-base-100 shadow-xl hover:bg-sky-200  hover:scale-110" title='click to see by category'>
+                    <div className="card shadow-xl dark:bg-gray-800  hover:scale-110" title='click to see by category'>
                         <Link to={`/category/${category?.categorySize}`} >
                             <figure className="px-10 pt-10">
                                 <img src={category?.categoryImage} alt="Shoes" className="rounded-xl w-72 h-48" />

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthProvider';
-import useUser from '../../hooks/useUser';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import { AuthContext } from '../../../context/AuthProvider';
+import useUser from '../../../hooks/useUser';
+import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 const DashBoard = () => {
 
@@ -24,7 +24,7 @@ const DashBoard = () => {
                 <h1 className="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Dashboard <span className='text-orange-400'>||</span> Your Activity</h1>
 
                 <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
-                    Please note that, be aware to communicate with other seller , you should check seller information and products feedback/comment before. Machine should be looks much clear in picture than actuate  real life.
+                    Please note that, be aware to communicate with other seller , you should check seller information and products feedback/comment before. <strong className='text-orange-400'>Machine</strong> should be looks much clear in picture than actuate  real life.
                 </p>
 
                 <div className="flex items-center justify-center">
@@ -43,10 +43,10 @@ const DashBoard = () => {
                                 <Link to="/dashboard/addProduct">
                                     <button className="px-4 py-2 text-sm font-medium text-blue-600 capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12">Add a Product</button>
                                 </Link>
-                                <Link to="/dashboard/addProduct">
+                                <Link to="/dashboard/myProducts">
                                     <button className="px-4 py-2 text-sm font-medium text-blue-600 capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12">My Products</button>
                                 </Link>
-                                <Link to="/dashboard/addProduct">
+                                <Link to="/dashboard/myBuyers">
                                     <button className="px-4 py-2 text-sm font-medium text-blue-600 capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12">My Buyers</button>
                                 </Link>
                             </>}
