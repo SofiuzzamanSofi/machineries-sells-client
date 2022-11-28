@@ -121,12 +121,15 @@ const MyProducts = () => {
                     <tbody>
                         {/* table data map ---------  */}
                         {/* Warning: validateDOMNesting(...): <div> cannot appear as a child  from tbody section-- */}
-                        {!products ? <LoadingSpinner /> : products?.map((product, index) => <tr key={product?._id} className="hover">
+                        {products && products?.map((product, index) => <tr key={product._id} className="hover">
                             <th>{index + 1}</th>
                             <td>
                                 <img src={products?.picture || noImageFoundUrl} alt="ProfilePhoto" className='h-14 w-14 rounded-full border border-rose-600' />
                             </td>
-                            <td><p>{product?.productName}</p><p>ID: {product?._id}</p> </td>
+                            <td>
+                                <p>{product?.productName}</p>
+                                <p>ID: {product?._id}</p>
+                            </td>
                             <td>{product?.resalePrice}</td>
                             <td>{products?.sold ? "Un Available" : "Available"}</td>
                             <td>

@@ -1,7 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider';
+import useUser from '../../../hooks/useUser';
 
 const AllAdmin = () => {
+
+    // user from firebase--
+    const { user, noImageFoundUrl } = useContext(AuthContext);
+    // user from database with role --admin/seller/etc---
+    const [currentUser] = useUser(user);
+    const navigate = useNavigate();
+
+
+
+
     return (
         <div>
             <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-3">

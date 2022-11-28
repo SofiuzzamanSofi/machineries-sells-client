@@ -35,8 +35,8 @@ const router = createBrowserRouter([
             { path: "/dashboard/addProduct", element: <AddProduct /> },
             { path: "/dashboard/myProducts", element: <MyProducts /> },
             { path: "/dashboard/myBuyers", element: <MyBuyers /> },
-            { path: "/dashboard/allSeller", element: <AllSeller /> },
             { path: "/dashboard/allBuyer", element: <AllBuyer /> },
+            { path: "/dashboard/allSeller", element: <AllSeller /> },
             { path: "/dashboard/allAdmin", element: <AllAdmin /> },
         ]
     },

@@ -2,11 +2,10 @@
 
 site type: Server side
 
-Admin: xijinpingchina@gmail.com
+Admin Email: <xiijinpingchina@gmail.com>
 
-Seller: obamaike@gmail.com
-
-User/Buyer: vladimirputin@gmail.com
+Seller Email: <obamaike@gmail.com>
+User/Buyer Email: <vladimirputin@gmail.com>
 
 Password for all:  AA$#11aa
 

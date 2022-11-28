@@ -54,10 +54,10 @@ const DashBoard = () => {
 
                         {exampleUser?.role === "admin" &&
                             <>
-                                <Link to="/dashboard/allSeller">
+                                <Link to="/dashboard/allBuyer">
                                     <button className="px-4 py-2 text-sm font-medium text-blue-600 capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12">All Buyers</button>
                                 </Link>
-                                <Link to="/dashboard/allBuyer">
+                                <Link to="/dashboard/allSeller">
                                     <button className="px-4 py-2 text-sm font-medium text-blue-600 capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12">All Sellers</button>
                                 </Link>
                                 <Link to="/dashboard/allAdmin">

@@ -37,7 +37,7 @@ const AddProduct = () => {
         event.preventDefault();
         const form = event?.target;
 
-        if (!currentUser?.role === "seller") {
+        if (!(currentUser?.role === "seller")) {
             return toast.error(`Dear ${currentUser?.displayName} are a ${currentUser?.role}, only seller can add a product.`);
         };
 
