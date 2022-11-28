@@ -15,7 +15,7 @@ import { async } from '@firebase/util';
 const MyProducts = () => {
 
     // user from firebase---
-    const { user, noPhotFoundUrl } = useContext(AuthContext);
+    const { user, noImageFoundUrl } = useContext(AuthContext);
     // user from database -----
     const [currentUser] = useUser(user);
     // product from db of axios function ---
@@ -92,7 +92,7 @@ const MyProducts = () => {
 
             <p className='text-center text-3xl py-6'><strong className='text-orange-400'>{currentUser?.displayName}</strong>, You Have total: <strong className='text-orange-400'>{products?.length ? products?.length : 0}</strong> Products</p>
             <div className='flex gap-4'>
-                <img src={"https://www.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg" || noPhotFoundUrl} alt="ProfilePhoto" className='h-14 w-14 rounded-full border border-rose-600' />
+                <img src={"https://www.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg" || noImageFoundUrl} alt="ProfilePhoto" className='h-14 w-14 rounded-full border border-rose-600' />
                 <p className='flex items-center'><span>Verified: </span> <span className='pl-6'>{currentUser?.sellerVerify ? <GoVerified className='text-blue-600' /> : ""} </span></p>
             </div>
             <div>
@@ -124,7 +124,7 @@ const MyProducts = () => {
                         {!products ? <LoadingSpinner /> : products?.map((product, index) => <tr key={product?._id} className="hover">
                             <th>{index + 1}</th>
                             <td>
-                                <img src={products?.picture || noPhotFoundUrl} alt="ProfilePhoto" className='h-14 w-14 rounded-full border border-rose-600' />
+                                <img src={products?.picture || noImageFoundUrl} alt="ProfilePhoto" className='h-14 w-14 rounded-full border border-rose-600' />
                             </td>
                             <td><p>{product?.productName}</p><p>ID: {product?._id}</p> </td>
                             <td>{product?.resalePrice}</td>

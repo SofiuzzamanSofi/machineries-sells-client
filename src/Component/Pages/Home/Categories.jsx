@@ -21,9 +21,9 @@ const Categories = () => {
 
 
     return (
-        <div className='text-center grid gap-6 dark:bg-gray-900 text-gray-800  dark:text-white'>
+        <div className='py-12 text-center grid gap-6 dark:bg-gray-900 text-gray-800  dark:text-white'>
             <div>
-                <p className='text-xl font-semibold'>Browse items by category</p>
+                <p className='text-5xl font-semibold'>Browse items by category</p>
             </div>
             <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3 cursor-pointer'>
                 {categories?.map(category => <div key={category._id}>

@@ -3,7 +3,7 @@ import { GoVerified } from 'react-icons/go';
 import ButtonPublic from '../../Shared/ButtonPublic/ButtonPublic';
 import ModalPublic from '../../Shared/ModalPublic/ModalPublic';
 
-const ProductsCard = ({ product, noPhotFoundUrl }) => {
+const ProductsCard = ({ product, noImageFoundUrl }) => {
 
     const [modalOpen, setModalOpen] = useState(true);
     const { categoryCompany, categorySize, categorySelf, productName, madeOf, ignitionMode, speedCoolingCylinder, pressureImpulse, pistonMovement, fuel, details, picture, location, resalePrice, originalPrice, mfYear, yearOfUse, dateOfPost, timeOfPost, sellerName, sellerEmail, sellerVerify, name, userInfo, sellerNumber } = product;
@@ -16,7 +16,7 @@ const ProductsCard = ({ product, noPhotFoundUrl }) => {
             <div className='p-6'>
                 <div className='lg:flex gap-6 '>
                     <div >
-                        <img className=' w-72 h-48 rounded-lg text-center m-auto' src={picture ? picture : noPhotFoundUrl} alt="" />
+                        <img className=' w-72 h-48 rounded-lg text-center m-auto' src={picture ? picture : noImageFoundUrl} alt="" />
                     </div>
                     <div>
                         <p className='text-lg underline'>Users Information:</p>

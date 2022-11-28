@@ -11,7 +11,7 @@ import ButtonPublic from '../../Shared/ButtonPublic/ButtonPublic';
 const AddProduct = () => {
 
     // user from firebase--
-    const { user, noPhotFoundUrl } = useContext(AuthContext);
+    const { user, noImageFoundUrl } = useContext(AuthContext);
     // user from database with role --admin/seller/etc---
     const [currentUser] = useUser(user);
     const navigate = useNavigate();
@@ -117,7 +117,7 @@ const AddProduct = () => {
                         <div className='grid gap-4'>
                             <p className="text-sm">Profile Photo</p>
                             <div className="flex items-center space-x-2">
-                                <img src={user?.photoURL || noPhotFoundUrl} alt="phot" className="w-10 h-10 rounded-full bg-black dark:bg-base-200" />
+                                <img src={user?.photoURL || noImageFoundUrl} alt="phot" className="w-10 h-10 rounded-full bg-black dark:bg-base-200" />
                                 <button disabled type="button" className="px-4 py-2 border rounded-md dark:border-gray-100">{currentUser?.displayName}</button>
                             </div>
                             <p ><span>Email: {currentUser?.email}  </span></p>
