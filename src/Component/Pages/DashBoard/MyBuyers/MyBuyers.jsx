@@ -12,7 +12,7 @@ const MyBuyers = () => {
     const { data, isLoading, refetch } = useQuery({
         queryKey: ["products"],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/mybuyer?email=${user?.email}`);
+            const res = await fetch(`https://machineries-sells-server-sofiuzzamansofi.vercel.app/mybuyer?email=${user?.email}`);
             const data = await res.json();
             if (data?.success) {
                 return data.data;

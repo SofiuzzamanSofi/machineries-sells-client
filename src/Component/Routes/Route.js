@@ -25,9 +25,9 @@ const router = createBrowserRouter([
             { path: "/", element: <Home /> },
             { path: "/blogs", element: <Blogs /> },
             { path: "/contactUs", element: <ContactUs /> },
-            { path: "/category/:id", element: <PrivetRoute><Products /></PrivetRoute>, loader: ({ params }) => fetch(`http://localhost:5000/products/${params?.id}`) },
-            { path: "/category/all", element: <PrivetRoute><Products /></PrivetRoute>, loader: () => fetch(`http://localhost:5000/products/all`) },
-            { path: "/product/:id", element: <PrivetRoute><ProductDetails /></PrivetRoute>, loader: ({ params }) => fetch(`http://localhost:5000/product/${params?.id}`) },
+            { path: "/category/:id", element: <PrivetRoute><Products /></PrivetRoute>, loader: ({ params }) => fetch(`https://machineries-sells-server-sofiuzzamansofi.vercel.app/products/${params?.id}`) },
+            { path: "/category/all", element: <PrivetRoute><Products /></PrivetRoute>, loader: () => fetch(`https://machineries-sells-server-sofiuzzamansofi.vercel.app/products/all`) },
+            { path: "/product/:id", element: <PrivetRoute><ProductDetails /></PrivetRoute>, loader: ({ params }) => fetch(`https://machineries-sells-server-sofiuzzamansofi.vercel.app/product/${params?.id}`) },
         ]
     },
     // dash-board route----

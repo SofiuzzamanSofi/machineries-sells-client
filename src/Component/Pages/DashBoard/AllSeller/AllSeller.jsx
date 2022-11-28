@@ -20,7 +20,7 @@ const AllSeller = () => {
     const { data, isLoading, refetch } = useQuery({
         queryKey: ["products"],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/user/seller");
+            const res = await fetch("https://machineries-sells-server-sofiuzzamansofi.vercel.app/user/seller");
             const data = await res.json();
             if (data?.success) {
                 return data.data;
@@ -34,7 +34,7 @@ const AllSeller = () => {
         if (!(currentUser?.role === "admin")) {
             return toast.error(`Dear ${currentUser?.displayName} only admin delete someone.`);
         };
-        axios.delete(`http://localhost:5000/user/${id}`)
+        axios.delete(`https://machineries-sells-server-sofiuzzamansofi.vercel.app/user/${id}`)
             .then(data => {
                 if (data?.data?.data?.acknowledged) {
                     refetch();

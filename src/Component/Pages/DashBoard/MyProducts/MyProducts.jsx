@@ -28,7 +28,7 @@ const MyProducts = () => {
 
     useEffect(() => {
         if (currentUser?.role === "seller" || currentUser?.role === "admin") {
-            axios.get(`http://localhost:5000/myProducts?email=${currentUser?.email}`)
+            axios.get(`https://machineries-sells-server-sofiuzzamansofi.vercel.app/myProducts?email=${currentUser?.email}`)
                 .then(data => {
                     // console.log(data?.data?.data);
                     setProducts(data?.data?.data);
@@ -41,7 +41,7 @@ const MyProducts = () => {
     // const { data, isLoading, refetch } = useQuery({
     //     queryKey: ["myProducts"],
     //     queryFn: async () => {
-    //         axios.get(`http://localhost:5000/myProducts?email=${currentUser?.email}`)
+    //         axios.get(`https://machineries-sells-server-sofiuzzamansofi.vercel.app/myProducts?email=${currentUser?.email}`)
     //             .then(data => {
     //                 // console.log(data?.data?.data);
     //                 setProducts(data?.data?.data);
@@ -61,7 +61,7 @@ const MyProducts = () => {
     const addAdvertisement = (id, HomePageAdds) => {
         console.log("under add function", id);
         const advertise = { advertiseName: HomePageAdds };
-        axios.put(`http://localhost:5000/advertised/products/${id}`, advertise)
+        axios.put(`https://machineries-sells-server-sofiuzzamansofi.vercel.app/advertised/products/${id}`, advertise)
             .then(data => {
                 if (data?.data?.success) {
                     setStateChange(!stateChange);

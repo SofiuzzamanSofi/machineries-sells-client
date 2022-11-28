@@ -10,7 +10,7 @@ const Categories = () => {
 
     const { isLoading, isError, data, error, refetch } = useQuery({
         queryKey: ["categorySize"],
-        queryFn: () => axios.get("http://localhost:5000/productsCategory")
+        queryFn: () => axios.get("https://machineries-sells-server-sofiuzzamansofi.vercel.app/productsCategory")
     });
     const categories = data?.data?.data;
     // console.log(data?.data?.data)

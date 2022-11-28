@@ -8,7 +8,7 @@ const useUser = user => {
     // /create user on db or get user on db---
     useEffect(() => {
         if (user?.email) {
-            axios.post("http://localhost:5000/user", { email: user?.email })
+            axios.post("https://machineries-sells-server-sofiuzzamansofi.vercel.app/user", { email: user?.email })
                 .then(res => {
                     // console.log("clg from useUser hooks then success:", res?.data)
                     setDbUser(res?.data?.data);

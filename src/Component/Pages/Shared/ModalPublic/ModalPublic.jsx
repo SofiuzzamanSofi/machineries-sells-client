@@ -22,7 +22,7 @@ const ModalPublic = ({ setModalOpen, product }) => {
             buyerLocation: event?.target?.location?.value,
         };
 
-        axios.post("http://localhost:5000/bookings", booking)
+        axios.post("https://machineries-sells-server-sofiuzzamansofi.vercel.app/bookings", booking)
             .then(data => {
                 if (data?.data?.success) {
                     // console.log(data?.data);

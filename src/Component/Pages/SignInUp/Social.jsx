@@ -45,7 +45,7 @@ const Social = () => {
     const saveDbOnUser = user => {
         axios({
             method: "POST",
-            url: "http://localhost:5000/user",
+            url: "https://machineries-sells-server-sofiuzzamansofi.vercel.app/user",
             data: {
                 displayName: user?.displayName,
                 email: user?.email,

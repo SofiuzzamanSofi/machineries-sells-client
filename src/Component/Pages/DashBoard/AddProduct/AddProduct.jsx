@@ -90,7 +90,7 @@ const AddProduct = () => {
                     };
                     // console.log(product);
                     // post axios function to store product on db --
-                    axios.post("http://localhost:5000/products", product)
+                    axios.post("https://machineries-sells-server-sofiuzzamansofi.vercel.app/products", product)
                         .then(data => {
                             console.log(data?.data);
                             toast.success(`Dear ${currentUser?.displayName}, your product is added successfully.`);

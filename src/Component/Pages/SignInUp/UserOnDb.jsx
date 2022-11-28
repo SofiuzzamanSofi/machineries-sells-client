@@ -6,10 +6,10 @@
 //         email: user?.email,
 //         role: user?.role,
 //     };
-//     // axios.post({"http://localhost:5000/user", userInfo} )
+//     // axios.post({"https://machineries-sells-server-sofiuzzamansofi.vercel.app/user", userInfo} )
 //     axios({
 //         method: 'post',
-//         url: "http://localhost:5000/user",
+//         url: "https://machineries-sells-server-sofiuzzamansofi.vercel.app/user",
 //         data: userInfo,
 //     }).then(res => {
 

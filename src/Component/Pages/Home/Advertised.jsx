@@ -17,7 +17,7 @@ const Advertised = () => {
     const { data, isLoading, refetch } = useQuery({
         queryKey: ["products"],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/advertised/products");
+            const res = await fetch("https://machineries-sells-server-sofiuzzamansofi.vercel.app/advertised/products");
             const data = await res.json();
             if (data?.success) {
                 return data.data;
