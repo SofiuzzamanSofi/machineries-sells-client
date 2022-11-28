@@ -40,17 +40,17 @@ const ModalPublic = ({ setModalOpen, product }) => {
         <div>
             <input type="checkbox" id="modal-public" className="modal-toggle" />
             <label htmlFor="modal-public" className="modal cursor-pointer">
-                <label className="modal-box relative" htmlFor="">
+                <label className="modal-box relative dark:bg-gray-900  dark:text-white " htmlFor="">
 
                     <form onSubmit={handleModal}>
                         <p className='text-lg font-semibold'>{productName}</p>
                         {/* <p className='font-semibold'>Product Id:{product?._id}</p> */}
-                        <div className='grid gap-2 my-4'>
+                        <div className='grid gap-4 my-4'>
                             <input type="text" className='border rounded-md h-8 p-2' defaultValue={`Price: $${resalePrice}`} disabled />
                             <input type="text" className='border rounded-md h-8 p-2' defaultValue={user?.displayName} disabled />
                             <input type="text" className='border rounded-md h-8 p-2' defaultValue={user?.email} disabled />
-                            <input type="number" name="number" className='border rounded-md h-8 p-2' placeholder='Phone Number' required />
-                            <input type="text" name="location" className='border rounded-md h-8 p-2' placeholder='Location Pls' required />
+                            <input type="number" name="number" className='border rounded-md h-8 p-2 dark:text-black' placeholder='Phone Number' required />
+                            <input type="text" name="location" className='border rounded-md h-8 p-2 dark:text-black' placeholder='Location Pls' required />
                         </div>
                         <ButtonPublic size={"w-full"}>Submit</ButtonPublic>
                     </form>

@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { GoVerified } from 'react-icons/go';
+import { AuthContext } from '../../../context/AuthProvider';
 import ButtonPublic from '../../Shared/ButtonPublic/ButtonPublic';
 import ModalPublic from '../../Shared/ModalPublic/ModalPublic';
 
-const ProductsCard = ({ product, noImageFoundUrl }) => {
+const ProductsCard = ({ product, }) => {
 
+    const { noImageFoundUrl } = useContext(AuthContext);
     const [modalOpen, setModalOpen] = useState(true);
     const { categoryCompany, categorySize, categorySelf, productName, madeOf, ignitionMode, speedCoolingCylinder, pressureImpulse, pistonMovement, fuel, details, picture, location, resalePrice, originalPrice, mfYear, yearOfUse, dateOfPost, timeOfPost, sellerName, sellerEmail, sellerVerify, name, userInfo, sellerNumber } = product;
     // console.log(product);

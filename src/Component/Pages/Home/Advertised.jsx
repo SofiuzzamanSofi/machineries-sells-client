@@ -24,7 +24,7 @@ const Advertised = () => {
             } else { return data.success };
         },
     });
-    console.log(data);
+    // console.log(data);
 
 
 

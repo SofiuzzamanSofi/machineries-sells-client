@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const AdvertisedCard = ({ product }) => {
     return (
         <div className="card shadow-xl dark:bg-gray-800  hover:scale-110" title='click to see by category'>
-            <Link to={`/category/${product?.categorySize}`} >
+            <Link to={`/product/${product?._id}`} >
                 <figure className="px-10 pt-10">
                     <img src={product?.picture} alt="Shoes" className="rounded-xl w-72 h-48" />
                 </figure>

@@ -12,6 +12,7 @@ import MyOrders from "../Pages/DashBoard/MyOrders/MyOrders";
 import MyProducts from "../Pages/DashBoard/MyProducts/MyProducts";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
+import ProductDetails from "../Pages/Products/ProductDetails/ProductDetails";
 import Products from "../Pages/Products/Products/Products";
 import SignIn from "../Pages/SignInUp/SignIn";
 import SignUp from "../Pages/SignInUp/SignUp";
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
             { path: "/contactUs", element: <ContactUs /> },
             { path: "/category/:id", element: <PrivetRoute><Products /></PrivetRoute>, loader: ({ params }) => fetch(`http://localhost:5000/products/${params?.id}`) },
             { path: "/category/all", element: <PrivetRoute><Products /></PrivetRoute>, loader: () => fetch(`http://localhost:5000/products/all`) },
+            { path: "/product/:id", element: <PrivetRoute><ProductDetails /></PrivetRoute>, loader: ({ params }) => fetch(`http://localhost:5000/product/${params?.id}`) },
         ]
     },
     // dash-board route----
