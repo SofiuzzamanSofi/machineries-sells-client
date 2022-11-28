@@ -28,28 +28,28 @@ const ProductsCard = ({ product, noPhotFoundUrl }) => {
                         <p><span>Posted : </span> <span> {timeOfPost}</span>  <span>{dateOfPost} </span></p>
                     </div>
                 </div>
-                <div className='lg:flex gap-6 '>
+                <div className=''>
                     <div>
                         <p className='text-lg underline'>Product Information:</p>
                         <p><span>Model/Name: </span><span className='font-semibold'>{productName}</span></p>
-
-                        <div className='sm:flex gap-6 justify-between py-4'>
-                            <div>
-                                <p><span>Company: </span><span>{categoryCompany}</span></p>
-                                <p><span>Origin: </span><span>{madeOf}</span></p>
-                                <p><span>Machine Size: </span><span>{categorySize}</span></p>
-                                <p><span>Self Start: </span><span>{categorySelf}</span></p>
-                                <p><span>Fuel Type: </span><span>{fuel}</span></p>
-                            </div>
-                            <div>
-                                <p><span>Price: $</span><span className='font-bold text-green-500'>{resalePrice}</span></p>
-                                <p><span>Original Price: $</span><span>{originalPrice}</span></p>
-                                <p><span>M.A.F.: </span><span>{mfYear}</span></p>
-                                <p><span>Years Of Used: </span><span>{yearOfUse}</span></p>
-                                <p><span>Fuel Type: </span><span>{fuel}</span></p>
-                            </div>
+                    </div>
+                    <div className='sm:flex gap-6 justify-between py-4 '>
+                        <div className=''>
+                            <p><span>Company: </span><span>{categoryCompany}</span></p>
+                            <p><span>Origin: </span><span>{madeOf}</span></p>
+                            <p><span>Machine Size: </span><span>{categorySize}</span></p>
+                            <p><span>Self Start: </span><span>{categorySelf}</span></p>
+                            <p><span>Fuel Type: </span><span>{fuel}</span></p>
                         </div>
-
+                        <div className=''>
+                            <p><span>Price: $</span><span className='font-bold text-green-500'>{resalePrice}</span></p>
+                            <p><span>Original Price: $</span><span>{originalPrice}</span></p>
+                            <p><span>M.A.F.: </span><span>{mfYear}</span></p>
+                            <p><span>Years Of Used: </span><span>{yearOfUse}</span></p>
+                            <p><span>Fuel Type: </span><span>{fuel}</span></p>
+                        </div>
+                    </div>
+                    <div>
                         <p><span>Ignition Mode: </span><span>{ignitionMode}</span></p>
                         <p><span>Cooling System: </span><span>{speedCoolingCylinder}</span></p>
                         <p><span>Pressure Impulse: </span><span>{pressureImpulse}</span></p>

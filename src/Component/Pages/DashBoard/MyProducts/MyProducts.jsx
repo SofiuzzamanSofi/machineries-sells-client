@@ -1,14 +1,16 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { GoVerified } from 'react-icons/go';
-import { RiArrowDropDownLine } from 'react-icons/ri';
 import { MdArrowDropDownCircle } from 'react-icons/md';
 import { AuthContext } from '../../../context/AuthProvider';
 import useUser from '../../../hooks/useUser';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
-import ButtonPublic from '../../Shared/ButtonPublic/ButtonPublic';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import ButtonPublic from '../../Shared/ButtonPublic/ButtonPublic';
+import { RiArrowDropDownLine } from 'react-icons/ri';
+import { useQuery } from '@tanstack/react-query';
+import { async } from '@firebase/util';
 
 const MyProducts = () => {
 
@@ -19,6 +21,8 @@ const MyProducts = () => {
     // product from db of axios function ---
     const [products, setProducts] = useState("");
     // console.log(products);
+    const [stateChange, setStateChange] = useState(true);
+
 
 
 
@@ -29,27 +33,56 @@ const MyProducts = () => {
                     // console.log(data?.data?.data);
                     setProducts(data?.data?.data);
                 })
-                .catch(error => console.log("error from my product page axios catch:", error))
-        }
-    }, [currentUser]);
+                .catch(error => console.log("error from my product page axios catch:", error));
+        };
+    }, [currentUser, stateChange]);
 
-    // condtional loadin spinner -----
-    if (!user?.uid && !currentUser) {
-        return <LoadingSpinner />
+    // reqact query give a erro: [react_devtools_backend.js:4026 Query data cannot be undefined. Please make sure to return a value other than undefined from your query function. Affected query key: ["myProducts"]]------
+    // const { data, isLoading, refetch } = useQuery({
+    //     queryKey: ["myProducts"],
+    //     queryFn: async () => {
+    //         axios.get(`http://localhost:5000/myProducts?email=${currentUser?.email}`)
+    //             .then(data => {
+    //                 // console.log(data?.data?.data);
+    //                 setProducts(data?.data?.data);
+    //                 return data;
+    //             })
+    //             .catch(error => console.log("error from my product page axios catch:", error));
+    //     },
+    // });
+    // console.log(data);
+
+
+
+
+
+
+    // add advertisement ("HomePageAdds") add function ----
+    const addAdvertisement = (id, HomePageAdds) => {
+        console.log("under add function", id);
+        const advertise = { advertiseName: HomePageAdds };
+        axios.put(`http://localhost:5000/advertised/products/${id}`, advertise)
+            .then(data => {
+                if (data?.data?.success) {
+                    setStateChange(!stateChange);
+                    toast.success(data?.data?.message);
+                } else {
+                    toast.error(data?.data?.message);
+                };
+            })
+            .catch(error => console.log("add Advertise axios catch:", error));
     };
 
-    // unimplemet function ------
+    // add advertisement **unimplemet function advertisement 2 ------
     const unImplemetn = () => {
         toast.error("This Functionality is not implement yet.")
     };
 
 
-    // advertisement add function ----
-    const addAdvertisement = id => {
-        console.log("under add function", id)
+    // condtional loadin spinner -----
+    if (!user?.uid || !currentUser) {
+        return <LoadingSpinner />
     };
-
-
 
 
 
@@ -97,13 +130,18 @@ const MyProducts = () => {
                             <td>{product?.resalePrice}</td>
                             <td>{products?.sold ? "Un Available" : "Available"}</td>
                             <td>
-                                <div className="dropdown">
-                                    <label tabIndex={0} className="btn btn-sm btn-outline m-1">Advertisement <MdArrowDropDownCircle /></label>
-                                    <ul tabIndex={0} className="dropdown-content menu py-2 shadow bg-base-100 rounded-box w-52">
-                                        <li onClick={() => addAdvertisement(product?._id)}><Link to="">HomePage adds cos.5/1d </Link></li>
-                                        <li onClick={unImplemetn}><Link to="">Super Add 15/month</Link></li>
-                                    </ul>
-                                </div>
+                                {
+                                    product?.advertiseName ? `Running: ${product?.advertiseName}`
+                                        :
+                                        <div className="dropdown">
+                                            <label tabIndex={0} className="btn btn-sm btn-outline m-1">Advertisement <MdArrowDropDownCircle /></label>
+                                            <ul tabIndex={0} className="dropdown-content menu py-2 shadow bg-base-100 rounded-box w-52">
+                                                <li onClick={() => addAdvertisement(product?._id, "HomePageAdds")}><Link to="">HomePage adds cos.5/1d </Link></li>
+                                                <li onClick={unImplemetn}><Link to="">Super Add 15/month</Link></li>
+                                            </ul>
+                                        </div>
+                                }
+
 
                             </td>
                             <td><button className='btn-outline btn-sm rounded-lg hover:bg-rose-700'>Delete</button></td>
