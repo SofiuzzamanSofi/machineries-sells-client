@@ -8,7 +8,7 @@ const ProductDetails = () => {
     // console.log(products);
     const location = useLocation();
     // console.log(location?.pathname)
-    console.log("details page", product);
+    // console.log("details page", product);
     if (!product) {
         return <LoadingSpinner />
     }

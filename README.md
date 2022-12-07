@@ -1,6 +1,6 @@
 # site Name: Machineries-Sells
 
-site type: Server side
+site type: Client side
 
 Admin Email: <xiijinpingchina@gmail.com>
 

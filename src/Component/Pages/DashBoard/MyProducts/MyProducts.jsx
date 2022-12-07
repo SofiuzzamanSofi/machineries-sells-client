@@ -59,7 +59,7 @@ const MyProducts = () => {
 
     // add advertisement ("HomePageAdds") add function ----
     const addAdvertisement = (id, HomePageAdds) => {
-        console.log("under add function", id);
+        // console.log("under add function", id);
         const advertise = { advertiseName: HomePageAdds };
         axios.put(`https://machineries-sells-server-sofiuzzamansofi.vercel.app/advertised/products/${id}`, advertise)
             .then(data => {
