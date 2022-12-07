@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 import useUser from '../../../hooks/useUser';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
@@ -12,9 +12,25 @@ const DashBoard = () => {
     // console.log("dashboard", exampleUser);
 
 
+    // location pathname use for button active color changed ---
+    const location = useLocation();
+    // console.log(location?.pathname);
+
+
+
+    // Link &  Button jsx component --- 
+    const LinkAndButton = ({ to }) => {
+        return (
+            <Link to={`/dashboard/${to.replace(" ", "").toLowerCase()}`}>
+                <button className={`px-4 py-2 text-sm font-medium  capitalize transition-colors duration-300 md:py-3  dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12 ${location?.pathname?.toLowerCase() === `/dashboard/${to.replace(" ", "").toLowerCase()}` ? "bg-blue-600 text-white" : "text-blue-600 dark:text-blue-400"}`}>{to}</button>
+            </Link>
+        );
+    };
+
     if (!user?.uid) {
         return <LoadingSpinner />
     };
+
 
 
 
@@ -33,36 +49,22 @@ const DashBoard = () => {
 
                         {user?.uid &&
                             <>
-                                <Link to="/dashboard/myOrders">
-                                    <button className="px-4 py-2 text-sm font-medium text-blue-600 capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12">My Orders</button>
-                                </Link>
+                                <LinkAndButton to="My Orders" />
                             </>}
 
                         {(exampleUser?.role === "seller" || exampleUser?.role === "admin") &&
                             <>
-                                <Link to="/dashboard/addProduct">
-                                    <button className="px-4 py-2 text-sm font-medium text-blue-600 capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12">Add a Product</button>
-                                </Link>
-                                <Link to="/dashboard/myProducts">
-                                    <button className="px-4 py-2 text-sm font-medium text-blue-600 capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12">My Products</button>
-                                </Link>
-                                <Link to="/dashboard/myBuyers">
-                                    <button className="px-4 py-2 text-sm font-medium text-blue-600 capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12">My Buyers</button>
-                                </Link>
+                                <LinkAndButton to="Add Product" />
+                                <LinkAndButton to="My Products" />
+                                <LinkAndButton to="My Buyers" />
                             </>}
 
 
                         {exampleUser?.role === "admin" &&
                             <>
-                                <Link to="/dashboard/allBuyer">
-                                    <button className="px-4 py-2 text-sm font-medium text-blue-600 capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12">All Buyers</button>
-                                </Link>
-                                <Link to="/dashboard/allSeller">
-                                    <button className="px-4 py-2 text-sm font-medium text-blue-600 capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12">All Sellers</button>
-                                </Link>
-                                <Link to="/dashboard/allAdmin">
-                                    <button className="px-4 py-2 text-sm font-medium text-blue-600 capitalize transition-colors duration-300 md:py-3 dark:text-blue-400 dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12">All Admin</button>
-                                </Link>
+                                <LinkAndButton to="All Buyer" />
+                                <LinkAndButton to="All Seller" />
+                                <LinkAndButton to="All Admin" />
                             </>}
                     </div>
                 </div>

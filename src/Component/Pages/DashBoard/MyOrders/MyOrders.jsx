@@ -39,7 +39,7 @@ const MyOrders = () => {
                         <button disabled type="button" className="px-4 py-2 border rounded-md dark:border-gray-100">{user?.displayName}</button>
                     </div>
                     <p ><span>Email: {user?.email}  </span></p>
-                    <p className=''> <span className=''>You are: Admin </span></p>
+                    <p className=''> <span className=''>You are:  </span></p>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="table w-full  dark:text-black dark:bg-black">

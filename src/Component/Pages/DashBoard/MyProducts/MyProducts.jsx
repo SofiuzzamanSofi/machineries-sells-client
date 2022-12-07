@@ -90,7 +90,9 @@ const MyProducts = () => {
     return (
         <div className='dark:bg-gray-900  dark:text-white p-4'>
 
-            <p className='text-center text-3xl py-6'><strong className='text-orange-400'>{currentUser?.displayName}</strong>, You Have total: <strong className='text-orange-400'>{products?.length ? products?.length : 0}</strong> Products</p>
+            <div>
+                <p className='text-center text-3xl py-6'><strong className='text-orange-400'>{currentUser?.displayName}</strong>, You Have total: <strong className='text-orange-400'>{products?.length ? products?.length : 0}</strong> Products</p>
+            </div>
             <div className='flex gap-4'>
                 <img src={"https://www.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg" || noImageFoundUrl} alt="ProfilePhoto" className='h-14 w-14 rounded-full border border-rose-600' />
                 <p className='flex items-center'><span>Verified: </span> <span className='pl-6'>{currentUser?.sellerVerify ? <GoVerified className='text-blue-600' /> : ""} </span></p>
@@ -101,7 +103,6 @@ const MyProducts = () => {
             </div>
 
             {/* talbe ------------- */}
-
             <div className="overflow-x-auto my-6">
                 <table className="table w-full dark:text-black dark:bg-black">
                     <thead>
@@ -115,13 +116,10 @@ const MyProducts = () => {
                             <th>Delete</th>
                         </tr>
                     </thead>
-
-
-
                     <tbody>
                         {/* table data map ---------  */}
                         {/* Warning: validateDOMNesting(...): <div> cannot appear as a child  from tbody section-- */}
-                        {products && products?.map((product, index) => <tr key={product._id} className="hover">
+                        {!products ? "" : products?.map((product, index) => <tr key={product._id} className="hover">
                             <th>{index + 1}</th>
                             <td>
                                 <img src={products?.picture || noImageFoundUrl} alt="ProfilePhoto" className='h-14 w-14 rounded-full border border-rose-600' />
@@ -144,8 +142,6 @@ const MyProducts = () => {
                                             </ul>
                                         </div>
                                 }
-
-
                             </td>
                             <td><button className='btn-outline btn-sm rounded-lg hover:bg-rose-700'>Delete</button></td>
                         </tr>

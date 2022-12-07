@@ -19,7 +19,7 @@ const MyBuyers = () => {
             } else { return data.success };
         },
     });
-    console.log(data);
+    // console.log(data);
 
     const handleDeleteUser = id => {
         toast.error("This feature is not complete due to time..Cumming Soon.")
