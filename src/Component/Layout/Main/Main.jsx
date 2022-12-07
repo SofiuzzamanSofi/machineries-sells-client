@@ -8,7 +8,9 @@ const Main = () => {
         <div>
             <div className="min-h-screen">
                 <Navbar />
-                <Outlet />
+                <div className='max-w-screen-2xl mx-auto '>
+                    <Outlet />
+                </div>
             </div>
 
             <Footer />

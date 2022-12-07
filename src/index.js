@@ -13,7 +13,7 @@ const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className='max-w-screen-2xl mx-auto '>
+    <div >
       <AuthProvider>
         <QueryClientProvider client={queryClient} >
           <Toaster />
