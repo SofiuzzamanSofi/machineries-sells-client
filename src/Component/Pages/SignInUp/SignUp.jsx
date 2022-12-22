@@ -126,7 +126,7 @@ const SignUp = () => {
         <div className='min-h-screen flex justify-center items-center'>
 
             <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
-                <h2 className="mb-3 text-3xl font-semibold text-center">Create a Account</h2>
+                <h2 className="mb-3 text-3xl font-semibold text-center bg-[#6d5347] text-white hover:bg-[#6e5a52] py-5">Create a Account</h2>
 
 
 
@@ -177,7 +177,7 @@ const SignUp = () => {
                             </div>
                         </div>
                     </div>
-                    <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">Sign Up</button>
+                    <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md bg-[#6d5347] text-white hover:bg-[#6e5a52]">Sign Up</button>
                 </form>
 
                 <div className="flex items-center w-full my-4">
@@ -191,7 +191,7 @@ const SignUp = () => {
 
 
                 <p className="text-sm text-center dark:text-gray-400">Already have an account?
-                    <Link to="/signin" rel="noopener noreferrer" className="focus:underline hover:underline hover:text-cyan-500" alt=""> Sign In</Link>
+                    <Link to="/signin" rel="noopener noreferrer" className="focus:underline hover:underline text-[#6d5347]  hover:text-[#6e5a52]" alt=""> Sign In</Link>
                 </p>
             </div>
         </div>

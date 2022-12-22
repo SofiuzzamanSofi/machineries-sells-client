@@ -1,13 +1,19 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import logo from "../../assets/logo.JPG";
+import { Link, useLocation } from 'react-router-dom';
+import logo from "../../assets/logo.png";
 import { AuthContext } from '../../context/AuthProvider';
 import ButtonPublic from './ButtonPublic/ButtonPublic';
+import { FaBars } from "react-icons/fa";
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const Navbar = () => {
 
+    const [showNav, setShowNav] = useState(false);
     const { logOut, user, setUser } = useContext(AuthContext);
+    const location = useLocation();
 
+    // logout function ---------
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -18,48 +24,61 @@ const Navbar = () => {
                 // An error happened.
                 console.log(error)
             });
-    }
+    };
 
+
+    // navbar hide for smaller device -------
+    // for folder/root/path/url change---
+    useEffect(() => {
+        setShowNav(false);
+    }, [location.pathname]);
+    // for scroll ----
+    showNav && window.addEventListener("scroll", () => setShowNav(false));
+    console.log(showNav);
 
     const navItems = <>
-        <li><Link to="/" className='hover:scale-110'>Home</Link></li>
+        <li><Link to="/" className='hover:bg-[#6d5347] rounded'>Home</Link></li>
         {
             user?.uid ? <>
-                <li><Link to="/dashboard" className='hover:scale-110'>Dashboard</Link></li>
+                <li><Link to="/dashboard" className='hover:bg-[#6d5347] rounded'>Dashboard</Link></li>
             </> : ""
         }
-        <li><Link to="/blogs" className='hover:scale-110'>Blogs</Link></li>
-        <li><Link to="/contactUs" className='hover:scale-110'>Contact Us</Link></li>
+        <li><Link to="/blogs" className='hover:bg-[#6d5347] rounded'>Blogs</Link></li>
+        <li><Link to="/contactUs" className='hover:bg-[#6d5347] rounded'>Contact Us</Link></li>
     </>
 
     return (
         <div className='bg-gray-100 dark:bg-gray-900'>
-            <div className="navbar pb-8  text-gray-800  dark:text-white">
+            <div className="navbar  text-gray-800  dark:text-white max-w-screen-2xl mx-auto">
                 <div className="navbar-start">
-                    <div className="dropdown">
-                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+
+                    {/* smaller device / choto mobile------- */}
+                    <div className="dropdown mr-2"
+                        onClick={() => setShowNav(!showNav)}
+                    >
+                        <label tabIndex={0} className="md:hidden mb-2">
+                            <ButtonPublic><FaBars /></ButtonPublic>
                         </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-
-
-                            {navItems}
-                        </ul>
+                        {showNav &&
+                            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                {navItems}
+                            </ul>
+                        }
                     </div>
-                    <Link to="/" className=" btn btn-link normal-case text-xl mx-0 px-0">
-                        <img className='rounded w-full h-full z-50 md:hover:h-20 border-rose-800' src={logo} alt="" />
+
+
+                    <Link to="/" className=" btn btn-link text-xl p-0">
+                        <img className='rounded w-full h-full z-50 bg-[#6d5347]' src={logo} alt="" />
                     </Link>
                 </div>
-                <div className="navbar-center hidden lg:flex">
+                <div className="navbar-center hidden md:flex">
                     <ul className="menu menu-horizontal p-0">
-
-
                         {navItems}
                     </ul>
                 </div>
                 <div className="navbar-end" title={user?.displayName}>
                     {user?.uid ?
-                        <Link to="/signin" className="" onClick={handleLogOut}><ButtonPublic size={"hover:scale-110"}>Sign Out</ButtonPublic></Link>
+                        <Link to="/signin" className="" onClick={handleLogOut}><ButtonPublic size={""}>Sign Out</ButtonPublic></Link>
                         :
                         <Link to="/signin"><ButtonPublic>Sign In</ButtonPublic></Link>
                     }

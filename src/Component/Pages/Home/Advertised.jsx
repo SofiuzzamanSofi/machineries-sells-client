@@ -32,7 +32,7 @@ const Advertised = () => {
         return (
             <div className='py-12 dark:bg-gray-900  dark:text-white p-4 border-y-[.25px] border-dashed'>
                 <div className='text-center'>
-                    <p className='text-5xl '>Advertisement Area</p>
+                    <p className='text-5xl py-4'>Advertisement Area</p>
                 </div>
                 <div className='py-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3 cursor-pointer'>
                     {data && data?.map(product => <AdvertisedCard key={product._id} product={product} />)}

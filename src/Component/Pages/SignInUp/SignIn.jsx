@@ -66,7 +66,7 @@ const SignIn = () => {
         <div className='min-h-screen flex justify-center items-center'>
 
             <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
-                <h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
+                <h2 className="mb-3 text-3xl font-semibold text-center bg-[#6d5347] text-white hover:bg-[#6e5a52] py-5">Sign In</h2>
 
 
 
@@ -96,7 +96,7 @@ const SignIn = () => {
                             <p className='text-[10px] py-1 hover:underline hover:text-cyan-500 cursor-pointer'>Forgot Password</p>
                         </div>
                     </div>
-                    <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">Sign In</button>
+                    <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md bg-[#6d5347] text-white hover:bg-[#6e5a52]">Sign In</button>
                 </form>
 
                 <div className="flex items-center w-full my-4">
@@ -110,7 +110,7 @@ const SignIn = () => {
 
 
                 <p className="text-sm text-center dark:text-gray-400">Don't have account?
-                    <Link to="/signUp" rel="noopener noreferrer" className="focus:underline hover:underline hover:text-cyan-500" alt=""> Sign up here</Link>
+                    <Link to="/signUp" rel="noopener noreferrer" className="focus:underline hover:underline text-[#6d5347]  hover:text-[#6e5a52]" alt=""> Sign up here</Link>
                 </p>
             </div>
         </div>

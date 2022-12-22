@@ -9,9 +9,9 @@ const DashBoardLayOut = () => {
 
     return (
         <div>
-            <div className="min-h-screen">
+            <div className="min-h-screen max-w-screen-2xl mx-auto bg-white dark:bg-gray-900">
                 <Navbar />
-                <div className='max-w-screen-2xl mx-auto '>
+                <div className='max-w-screen-2xl mx-auto px-4'>
                     <DashBoard />
                     <Outlet />
                 </div>

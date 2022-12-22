@@ -9,7 +9,7 @@ const Blogs = () => {
                         <a href="/" className="mb-6 sm:mx-auto">
                             <div className="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-50">
                                 <svg className="w-10 h-10 text-deep-purple-accent-400" stroke="currentColor" viewBox="0 0 52 52">
-                                    <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
+                                    <polygon strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
                                 </svg>
                             </div>
                         </a>
@@ -35,7 +35,7 @@ const Blogs = () => {
                                 <div className="flex items-center justify-center w-8 h-8 border rounded-full">
 
                                     <svg viewBox="0 0 24 24" className="w-3 text-gray-600 transition-transform duration-200">
-                                        <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
+                                        <polyline fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeMiterlimit="10" points="2,7 12,17 22,7" strokeLinejoin="round"></polyline>
                                     </svg>
                                 </div>
                             </button>
@@ -62,7 +62,7 @@ const Blogs = () => {
                                 <p className="text-lg font-medium">How does prototypical inheritance work?</p>
                                 <div className="flex items-center justify-center w-8 h-8 border rounded-full">
                                     <svg viewBox="0 0 24 24" className="w-3 text-gray-600 transition-transform duration-200 transform rotate-180">
-                                        <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
+                                        <polyline fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeMiterlimit="10" points="2,7 12,17 22,7" strokeLinejoin="round"></polyline>
                                     </svg>
                                 </div>
                             </button>
@@ -79,7 +79,7 @@ const Blogs = () => {
                                 <p className="text-lg font-medium">What is a unit test? Why should we write unit tests?</p>
                                 <div className="flex items-center justify-center w-8 h-8 border rounded-full">
                                     <svg viewBox="0 0 24 24" className="w-3 text-gray-600 transition-transform duration-200 transform rotate-180">
-                                        <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
+                                        <polyline fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeMiterlimit="10" points="2,7 12,17 22,7" strokeLinejoin="round"></polyline>
                                     </svg>
                                 </div>
                             </button>
@@ -105,7 +105,7 @@ const Blogs = () => {
                                 <p className="text-lg font-medium">React vs. Angular vs. Vue?</p>
                                 <div className="flex items-center justify-center w-8 h-8 border rounded-full">
                                     <svg viewBox="0 0 24 24" className="w-3 text-gray-600 transition-transform duration-200 transform rotate-180">
-                                        <polyline fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" points="2,7 12,17 22,7" stroke-linejoin="round"></polyline>
+                                        <polyline fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeMiterlimit="10" points="2,7 12,17 22,7" strokeLinejoin="round"></polyline>
                                     </svg>
                                 </div>
                             </button>

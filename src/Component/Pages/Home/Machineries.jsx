@@ -3,7 +3,7 @@ import React from 'react';
 const Machineries = () => {
     return (
 
-        <div className="m-0 py-16  md:px-24 lg:px-8 lg:py-20 bg-base-100 dark:bg-gray-900 text-gray-800  dark:text-white">
+        <div className="m-0 py-16  px-8 lg:py-20 bg-base-100 dark:bg-gray-900 text-gray-800  dark:text-white">
             <div className="flex flex-col mb-6 lg:flex-row md:mb-10">
                 <div className="lg:w-1/2">
                     <h2 className="max-w-md mb-6 font-sans text-3xl font-bold tracking-tight  sm:text-4xl sm:leading-none xl:max-w-lg">
@@ -18,7 +18,7 @@ const Machineries = () => {
             </div>
             <div className="grid gap-8 row-gap-10 sm:grid-cols-2 lg:grid-cols-4">
                 <div>
-                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
+                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 dark:bg-black">
                         <svg
                             className="w-7 h-7 text-deep-purple-accent-400"
                             strokeLinecap="round"
@@ -102,7 +102,7 @@ const Machineries = () => {
                     </a>
                 </div>
                 <div>
-                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
+                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 dark:bg-black">
                         <svg
                             className="w-7 h-7 text-deep-purple-accent-400"
                             viewBox="0 0 24 24"
@@ -197,7 +197,7 @@ const Machineries = () => {
                     </a>
                 </div>
                 <div>
-                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
+                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 dark:bg-black">
                         <svg
                             className="w-7 h-7 text-deep-purple-accent-400"
                             strokeLinecap="round"
@@ -299,7 +299,7 @@ const Machineries = () => {
                     </a>
                 </div>
                 <div>
-                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50">
+                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 dark:bg-black">
                         <svg
                             className="w-7 h-7 text-deep-purple-accent-400"
                             strokeLinecap="round"

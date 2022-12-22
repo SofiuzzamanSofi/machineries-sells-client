@@ -107,10 +107,10 @@ const AddProduct = () => {
 
 
     return (
-        <section className="p-6 dark:bg-gray-900  dark:text-white">
+        <section className="dark:bg-gray-900  dark:text-white">
             <p className='text-center py-4 font-bold text-4xl'>Add A Product</p>
-            <form onSubmit={handleAddProduct} noValidate="" action="" className="container flex flex-col mx-auto space-y-12 ng-untouched ng-pristine ng-valid d">
-                <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm">
+            <form onSubmit={handleAddProduct} noValidate="" action="" className="container flex flex-col mx-auto">
+                <fieldset className="grid grid-cols-4 gap-6 rounded-md shadow-sm">
                     <div className="space-y-2 col-span-full lg:col-span-1">
                         <p className="font-medium underline">Your(seller) Personal Inormation</p>
 

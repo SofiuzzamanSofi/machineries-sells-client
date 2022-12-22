@@ -88,13 +88,13 @@ const MyProducts = () => {
 
 
     return (
-        <div className='dark:bg-gray-900  dark:text-white p-4'>
+        <div className='dark:bg-gray-900  dark:text-white'>
 
             <div>
                 <p className='text-center text-3xl py-6'><strong className='text-orange-400'>{currentUser?.displayName}</strong>, You Have total: <strong className='text-orange-400'>{products?.length ? products?.length : 0}</strong> Products</p>
             </div>
             <div className='flex gap-4'>
-                <img src={"https://www.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg" || noImageFoundUrl} alt="ProfilePhoto" className='h-14 w-14 rounded-full border border-rose-600' />
+                <img src={user?.photoURL || noImageFoundUrl} alt="ProfilePhoto" className='h-14 w-14 rounded-full border border-rose-600' />
                 <p className='flex items-center'><span>Verified: </span> <span className='pl-6'>{currentUser?.sellerVerify ? <GoVerified className='text-blue-600' /> : ""} </span></p>
             </div>
             <div>

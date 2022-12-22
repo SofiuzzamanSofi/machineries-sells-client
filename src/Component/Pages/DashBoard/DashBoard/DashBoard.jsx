@@ -35,7 +35,7 @@ const DashBoard = () => {
 
 
     return (
-        <section className="bg-white dark:bg-gray-900">
+        <section className="">
             <div className="container px-6 py-10 mx-auto">
                 <h1 className="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Dashboard <span className='text-orange-400'>||</span> Your Activity</h1>
 

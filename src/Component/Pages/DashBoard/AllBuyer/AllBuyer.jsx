@@ -47,7 +47,7 @@ const AllBuyer = () => {
 
 
     return (
-        <div className='dark:bg-gray-900  dark:text-white p-4'>
+        <div className='dark:bg-gray-900  dark:text-white'>
             <p className='text-center py-4 font-bold text-4xl'>This is All Buyer page</p>
             <div className="space-y-2 col-span-full lg:col-span-1">
                 <p className="font-medium underline">Your(seller) Personal Inormation</p>

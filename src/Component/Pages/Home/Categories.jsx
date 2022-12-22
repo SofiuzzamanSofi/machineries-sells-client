@@ -21,13 +21,13 @@ const Categories = () => {
 
 
     return (
-        <div className='py-12 text-center grid gap-6 dark:bg-gray-900 text-gray-800  dark:text-white'>
+        <div className='py-12 px-4 text-center grid gap-6 dark:bg-gray-900 text-gray-800  dark:text-white'>
             <div>
-                <p className='text-5xl font-semibold'>Browse items by category</p>
+                <p className='text-5xl py-4 font-semibold'>Browse items by category</p>
             </div>
             <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3 cursor-pointer'>
                 {categories?.map(category => <div key={category._id}>
-                    <div className="card shadow-xl dark:bg-gray-800  hover:scale-110" title='click to see by category'>
+                    <div className="card shadow-xl hover:bg-slate-100 dark:bg-gray-800 dark:hover:bg-gray-700" title='click to see by category'>
                         <Link to={`/category/${category?.categorySize}`} >
                             <figure className="px-10 pt-10">
                                 <img src={category?.categoryImage} alt="Shoes" className="rounded-xl w-72 h-48" />
@@ -41,7 +41,7 @@ const Categories = () => {
                 </div>)}
             </div>
             <div>
-                <Link to="/category/all"> <ButtonPublic size={"hover:scale-125"}>See All Products</ButtonPublic> </Link>
+                <Link to="/category/all"> <ButtonPublic size={""}>See All Products</ButtonPublic> </Link>
             </div>
         </div>
     );

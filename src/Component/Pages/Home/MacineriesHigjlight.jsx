@@ -12,15 +12,15 @@ const MachineriesHighlight = () => {
                     <h1 className="text-xl font-bold">Second Hand-Machineries-sells.</h1>
                     <p className="py-6 text-justify">
                         We provide all types of facilitates for buyers and sellers . We crete a virtual Market and maintainers a lots of security for satisfaction our burs affections.. So happy shopping. Here you find any kinds of pars of
-                        <strong className='text-gray-900'> 4hp Engine</strong>
+                        <strong> 4hp Engine</strong>
                         and
-                        <strong className='text-gray-900'> pars</strong>
+                        <strong> pars</strong>
                         .
-                        <strong className='text-gray-900'> Remember </strong>
-                        we provide high quality of buyers <strong className='text-gray-900'> Satisfaction</strong>
+                        <strong> Remember </strong>
+                        we provide high quality of buyers <strong> Satisfaction</strong>
                         , We Promised you to give my best and best.
                     </p>
-                    <ButtonPublic size={"hover:scale-110"}>Second Hand Category</ButtonPublic>
+                    <ButtonPublic size={""}>Second Hand Category</ButtonPublic>
                 </div>
             </div>
         </div>
