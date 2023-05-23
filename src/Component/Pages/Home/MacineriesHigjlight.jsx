@@ -20,7 +20,9 @@ const MachineriesHighlight = () => {
                         we provide high quality of buyers <strong> Satisfaction</strong>
                         , We Promised you to give my best and best.
                     </p>
-                    <ButtonPublic size={""}>Second Hand Category</ButtonPublic>
+                    <a href="#category">
+                        <ButtonPublic size={""}>Second Hand Category</ButtonPublic>
+                    </a>
                 </div>
             </div>
         </div>

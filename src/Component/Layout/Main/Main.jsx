@@ -6,9 +6,9 @@ import Navbar from '../../Pages/Shared/Navbar';
 const Main = () => {
     return (
         <div>
-            <div className="min-h-screen">
+            <div className="min-h-screen dark:bg-gray-900">
                 <Navbar />
-                <div className='max-w-screen-2xl mx-auto bg-white dark:bg-gray-900 text-black dark:text-white'>
+                <div className='max-w-screen-2xl mx-auto bg-white dark:bg-gray-900 text-black dark:text-white '>
                     <Outlet />
                 </div>
             </div>

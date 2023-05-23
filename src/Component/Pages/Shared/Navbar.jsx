@@ -52,11 +52,11 @@ const Navbar = () => {
 
     return (
         <div className='bg-gray-100 dark:bg-gray-900'>
-            <div className="navbar  text-gray-800  dark:text-white max-w-screen-2xl mx-auto">
+            <div className="navbar  text-gray-800  dark:text-white max-w-screen-2xl mx-auto px-0">
                 <div className="navbar-start">
 
                     {/* smaller device / choto mobile------- */}
-                    <div className="dropdown mr-2"
+                    <div className="dropdown"
                         onClick={() => setShowNav(!showNav)}
                     >
                         <label tabIndex={0} className="md:hidden mb-2">

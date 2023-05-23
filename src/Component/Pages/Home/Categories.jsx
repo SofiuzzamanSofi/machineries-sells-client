@@ -21,7 +21,7 @@ const Categories = () => {
 
 
     return (
-        <div className='py-12 px-4 text-center grid gap-6 dark:bg-gray-900 text-gray-800  dark:text-white'>
+        <div className='py-12 px-4 text-center grid gap-6 dark:bg-gray-900 text-gray-800  dark:text-white' id='category'>
             <div>
                 <p className='text-5xl py-4 font-semibold'>Browse items by category</p>
             </div>
