@@ -1,9 +1,14 @@
 import React from 'react';
+import ButtonPublic from '../Shared/ButtonPublic/ButtonPublic';
 
 const ContactUs = () => {
+
+
+
+
     return (
-        <section className="py-6 dark:bg-gray-800 dark:text-gray-50 rounded-md min-h-screen">
-            <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
+        <section className="min-h-screen flex justify-center items-center">
+            <div className="grid max-w-6xl grid-cols-1  mx-auto lg:px-8 md:grid-cols-2 md:divide-x px-4 py-16">
                 <div className="py-6 md:py-0 md:px-6">
                     <h1 className="text-4xl font-bold">Get in touch <span className='text-xl text-cyan-500'>with machineries-sells</span></h1>
                     <p className="pt-2 pb-4">Fill in the form to start a conversation</p>
@@ -32,17 +37,17 @@ const ContactUs = () => {
                 <form noValidate="" className="flex flex-col py-6 space-y-6 md:py-0 md:px-6 ng-untouched ng-pristine ng-valid">
                     <label className="block">
                         <span className="mb-1">Full name</span>
-                        <input type="text" placeholder="Leroy Jenkins" className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800" />
+                        <input type="text" placeholder="Leroy Jenkins" className="p-2 border block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800" />
                     </label>
                     <label className="block">
                         <span className="mb-1">Email address</span>
-                        <input type="email" placeholder="leroy@jenkins.com" className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800" />
+                        <input type="email" placeholder="leroy@jenkins.com" className="p-2 border block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800" />
                     </label>
                     <label className="block">
                         <span className="mb-1">Message</span>
-                        <textarea rows="3" className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800"></textarea>
+                        <textarea rows="3" className="p-2 border block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:bg-gray-800"></textarea>
                     </label>
-                    <button type="button" className="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 dark:bg-violet-400 dark:text-gray-900 focus:ring-violet-400 hover:ring-violet-400">Submit</button>
+                    <ButtonPublic type="submit">Submit</ButtonPublic>
                 </form>
             </div>
         </section>

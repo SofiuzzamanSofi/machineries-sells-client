@@ -32,14 +32,14 @@ const router = createBrowserRouter([
     },
     // dash-board route----
     {
-        path: "/dashboard", element: <DashBoardLayOut />, errorElement: <ErrorPage />, children: [
-            { path: "/dashboard/myOrders", element: <MyOrders /> },
-            { path: "/dashboard/addProduct", element: <AddProduct /> },
-            { path: "/dashboard/myProducts", element: <MyProducts /> },
-            { path: "/dashboard/myBuyers", element: <MyBuyers /> },
-            { path: "/dashboard/allBuyer", element: <AllBuyer /> },
-            { path: "/dashboard/allSeller", element: <AllSeller /> },
-            { path: "/dashboard/allAdmin", element: <AllAdmin /> },
+        path: "/dashboard", element: <PrivetRoute><DashBoardLayOut /></PrivetRoute>, errorElement: <ErrorPage />, children: [
+            { path: "/dashboard", element: <MyOrders /> },
+            { path: "/dashboard/addProduct", element: <PrivetRoute><AddProduct /></PrivetRoute> },
+            { path: "/dashboard/myProducts", element: <PrivetRoute><MyProducts /></PrivetRoute> },
+            { path: "/dashboard/myBuyers", element: <PrivetRoute><MyBuyers /></PrivetRoute> },
+            { path: "/dashboard/allBuyer", element: <PrivetRoute><AllBuyer /></PrivetRoute> },
+            { path: "/dashboard/allSeller", element: <PrivetRoute><AllSeller /></PrivetRoute> },
+            { path: "/dashboard/allAdmin", element: <PrivetRoute><AllAdmin /></PrivetRoute> },
         ]
     },
     // sign in sign up route ---

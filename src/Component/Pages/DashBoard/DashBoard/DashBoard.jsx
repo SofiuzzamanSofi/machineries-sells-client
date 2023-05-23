@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 import useUser from '../../../hooks/useUser';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
+import ButtonPublic from '../../Shared/ButtonPublic/ButtonPublic';
 
 const DashBoard = () => {
 
@@ -21,8 +22,10 @@ const DashBoard = () => {
     // Link &  Button jsx component --- 
     const LinkAndButton = ({ to }) => {
         return (
-            <Link to={`/dashboard/${to.replace(" ", "").toLowerCase()}`}>
-                <button className={`px-4 py-2 text-sm font-medium  capitalize transition-colors duration-300 md:py-3  dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-xl md:px-12 ${location?.pathname?.toLowerCase() === `/dashboard/${to.replace(" ", "").toLowerCase()}` ? "bg-blue-600 text-white" : "text-blue-600 dark:text-blue-400"}`}>{to}</button>
+            <Link to={`/dashboard/${to.replace(" ", "").toLowerCase()}`}
+                className={`px-4 py-2 text-sm font-medium  capitalize transition-colors duration-300 lg:py-3  dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-md lg:px-12 ${location?.pathname?.toLowerCase() === `/dashboard/${to.replace(" ", "").toLowerCase()}` ? "bg-blue-600 text-white" : "text-blue-600 dark:text-blue-400"}`}
+            >
+                {to}
             </Link>
         );
     };
@@ -44,12 +47,17 @@ const DashBoard = () => {
                 </p>
 
                 <div className="flex items-center justify-center">
-                    <div className="flex flex-col sm:flex-row items-center p-1 border border-blue-600 dark:border-blue-400 rounded-xl">
+                    <div className="flex flex-col sm:flex-row items-center border border-blue-600 dark:border-blue-400 rounded-md">
 
 
                         {user?.uid &&
                             <>
-                                <LinkAndButton to="My Orders" />
+                                {/* <LinkAndButton to="My Orders" /> */}
+                                <Link to="/dashboard"
+                                    className={`px-4 py-2 text-sm font-medium  capitalize transition-colors duration-300 md:py-3  dark:hover:text-white focus:outline-none hover:bg-blue-600 hover:text-white rounded-md md:px-12 ${location?.pathname?.toLowerCase() === `/dashboard` ? "bg-blue-600 text-white" : "text-blue-600 dark:text-blue-400"}`}
+                                >
+                                    My Orders
+                                </Link>
                             </>}
 
                         {(exampleUser?.role === "seller" || exampleUser?.role === "admin") &&

@@ -216,12 +216,13 @@ const AddProduct = () => {
                             <label htmlFor="bio" className="text-sm">Bio</label>
                             <textarea required id="bio" name='details' placeholder="" className="w-full min-h-[100px]  md:min-h-[160px] p-2 rounded-md border-2 border-black text-black"></textarea>
                         </div>
+
+                        <div className="col-span-full text-center pt-4">
+                            <ButtonPublic size={"w-full bg-cyan-600 w-56"}>Submit</ButtonPublic>
+                        </div>
                     </div>
 
                 </fieldset>
-                <div className="text-center">
-                    <ButtonPublic size={"w-full bg-cyan-600 w-56"}>Submit</ButtonPublic>
-                </div>
             </form>
         </section>
     );

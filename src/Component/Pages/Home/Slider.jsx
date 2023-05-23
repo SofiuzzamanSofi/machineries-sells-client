@@ -1,8 +1,8 @@
 import React from 'react';
-import slide1 from "../../assets/slide1.JPG";
-import slide2 from "../../assets/slide2.JPG";
-import slide3 from "../../assets/slide3.JPG";
-import slide4 from "../../assets/slide4.JPG";
+import slide1 from "../../assets/slider1.png";
+import slide2 from "../../assets/slider2.png";
+import slide3 from "../../assets/slider3.png";
+import slide4 from "../../assets/slider4.png";
 
 const Slider = () => {
     return (

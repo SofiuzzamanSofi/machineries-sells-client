@@ -39,9 +39,12 @@ const Navbar = () => {
     const navItems = <>
         <li><Link to="/" className='hover:bg-[#6d5347] rounded'>Home</Link></li>
         {
-            user?.uid ? <>
+            // user?.uid ?
+            <>
                 <li><Link to="/dashboard" className='hover:bg-[#6d5347] rounded'>Dashboard</Link></li>
-            </> : ""
+            </>
+            // :
+            // ""
         }
         <li><Link to="/blogs" className='hover:bg-[#6d5347] rounded'>Blogs</Link></li>
         <li><Link to="/contactUs" className='hover:bg-[#6d5347] rounded'>Contact Us</Link></li>
@@ -78,7 +81,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end" title={user?.displayName}>
                     {user?.uid ?
-                        <Link to="/signin" className="" onClick={handleLogOut}><ButtonPublic size={""}>Sign Out</ButtonPublic></Link>
+                        <Link to="/" className="" onClick={handleLogOut}><ButtonPublic size={""}>Sign Out</ButtonPublic></Link>
                         :
                         <Link to="/signin"><ButtonPublic>Sign In</ButtonPublic></Link>
                     }

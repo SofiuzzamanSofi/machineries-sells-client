@@ -1,4 +1,5 @@
 import React from 'react';
+import 'react-photo-view/dist/react-photo-view.css';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
