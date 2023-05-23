@@ -52,7 +52,7 @@ const Navbar = () => {
 
     return (
         <div className='bg-gray-100 dark:bg-gray-900'>
-            <div className="navbar  text-gray-800  dark:text-white max-w-screen-2xl mx-auto px-0">
+            <div className="navbar  text-gray-800  dark:text-white max-w-screen-2xl mx-auto px-[2px]">
                 <div className="navbar-start">
 
                     {/* smaller device / choto mobile------- */}
