@@ -37,17 +37,17 @@ const Navbar = () => {
     console.log(showNav);
 
     const navItems = <>
-        <li><Link to="/" className='hover:bg-[#6d5347] rounded'>Home</Link></li>
+        <li><Link to="/" className='hover:bg-[#6d5347] hover:text-white rounded'>Home</Link></li>
         {
             // user?.uid ?
             <>
-                <li><Link to="/dashboard" className='hover:bg-[#6d5347] rounded'>Dashboard</Link></li>
+                <li><Link to="/dashboard" className='hover:bg-[#6d5347] hover:text-white rounded'>Dashboard</Link></li>
             </>
             // :
             // ""
         }
-        <li><Link to="/blogs" className='hover:bg-[#6d5347] rounded'>Blogs</Link></li>
-        <li><Link to="/contactUs" className='hover:bg-[#6d5347] rounded'>Contact Us</Link></li>
+        <li><Link to="/blogs" className='hover:bg-[#6d5347] hover:text-white rounded'>Blogs</Link></li>
+        <li><Link to="/contactUs" className='hover:bg-[#6d5347] hover:text-white rounded'>Contact Us</Link></li>
     </>
 
     return (

@@ -14,7 +14,7 @@ const ProductDetails = () => {
     }
     return (
         <div className='dark:bg-gray-900 text-gray-800  dark:text-white p-4'>
-            <p className='text-center text-5xl '> product details</p>
+            <p className='text-center text-5xl uppercase'> product details</p>
             <div className='flex justify-center'>
                 <ProductsCard product={product} />
             </div>

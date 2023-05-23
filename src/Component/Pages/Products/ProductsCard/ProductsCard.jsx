@@ -22,14 +22,14 @@ const ProductsCard = ({ product, }) => {
                         <PhotoProvider>
                             <PhotoView src={picture ? picture : noImageFoundUrl}>
                                 <img
-                                    className=' w-72 h-48 rounded-lg text-center m-auto'
+                                    className='w-72 h-48 rounded-lg text-center m-auto'
                                     src={picture ? picture : noImageFoundUrl} alt=""
                                 />
                             </PhotoView>
                         </PhotoProvider>
                     </div>
                     <div>
-                        <p className='text-lg underline'>Users Information:</p>
+                        <p className='text-lg underline uppercase font-bold'>Users Information:</p>
                         <p><span>Name: </span><span>{sellerName}</span></p>
                         <p><span>Email: </span><span>{sellerEmail}</span></p>
                         <p><span>Location: </span><span>{location}</span></p>
@@ -40,38 +40,38 @@ const ProductsCard = ({ product, }) => {
                 </div>
                 <div className=''>
                     <div className='min-h-[76px]'>
-                        <p className='text-lg underline'>Product Information:</p>
+                        <p className='text-lg underline uppercase font-bold'>Product Information:</p>
                         <p><span>Model/Name: </span><span className='font-semibold'>{productName}</span></p>
                     </div>
                     <div className='sm:flex gap-6 justify-between py-4 min-h-[120px]'>
                         <div className=''>
-                            <p><span>Company: </span><span>{categoryCompany}</span></p>
-                            <p><span>Origin: </span><span>{madeOf}</span></p>
+                            <p><span>Company: </span><span className='capitalize'>{categoryCompany}</span></p>
+                            <p><span>Origin: </span><span className='capitalize'>{madeOf}</span></p>
                             <p><span>Machine Size: </span><span>{categorySize}</span></p>
-                            <p><span>Self Start: </span><span>{categorySelf}</span></p>
-                            <p><span>Fuel Type: </span><span>{fuel}</span></p>
+                            <p><span>Self Start: </span><span className='capitalize'>{categorySelf}</span></p>
+                            <p><span>Fuel Type: </span><span className='capitalize'>{fuel}</span></p>
                         </div>
                         <div className=''>
                             <p><span>Price: $</span><span className='font-bold text-green-500'>{resalePrice}</span></p>
                             <p><span>Original Price: $</span><span>{originalPrice}</span></p>
                             <p><span>M.A.F.: </span><span>{mfYear}</span></p>
                             <p><span>Years Of Used: </span><span>{yearOfUse}</span></p>
-                            <p><span>Fuel Type: </span><span>{fuel}</span></p>
+                            <p><span>Fuel Type: </span><span className='capitalize'>{fuel}</span></p>
                         </div>
                     </div>
                     <div className='min-h-[76px]'>
-                        <p><span>Ignition Mode: </span><span>{ignitionMode}</span></p>
-                        <p><span>Cooling System: </span><span>{speedCoolingCylinder}</span></p>
-                        <p><span>Pressure Impulse: </span><span>{pressureImpulse}</span></p>
-                        <p><span>Piston Movement: </span><span>{pistonMovement}</span></p>
+                        <p><span>Ignition Mode: </span><span className='capitalize'>{ignitionMode}</span></p>
+                        <p><span>Cooling System: </span><span className='capitalize'>{speedCoolingCylinder}</span></p>
+                        <p><span>Pressure Impulse: </span><span className='capitalize'>{pressureImpulse}</span></p>
+                        <p><span>Piston Movement: </span><span className='capitalize'>{pistonMovement}</span></p>
                     </div>
                 </div>
                 <div className='py-4'>
-                    <p className='text-justify'>{details}</p>
+                    <p className='text-justify max-w-[601px]'>{details}</p>
                 </div>
                 <div className='pt-8'>
                     <label
-                        htmlFor="modal-public" className="btn hover:btn-info active:btn-info absolute bottom-5 left-5 right-5"
+                        htmlFor="modal-public" className="btn hover:bg-[#6d5347] hover:text-white absolute bottom-5 left-5 right-5"
                     >
                         Book now
                     </label>
