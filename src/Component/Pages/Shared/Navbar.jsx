@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from "../../assets/logo.png";
+import loginIcon from "../../assets/ProLockIcon.png";
 import { AuthContext } from '../../context/AuthProvider';
 import ButtonPublic from './ButtonPublic/ButtonPublic';
 import { FaBars } from "react-icons/fa";
@@ -9,9 +10,30 @@ import { useEffect } from 'react';
 
 const Navbar = () => {
 
+    // ||| button for mobile screen menu ---
     const [showNav, setShowNav] = useState(false);
+    // profile pic ---
+    const [isProfileOpen, setIsProfileOpen] = useState(false);
     const { logOut, user, setUser } = useContext(AuthContext);
     const location = useLocation();
+
+    // scroll to off profile or mobile menu bar ---
+    (showNav || isProfileOpen) && window.addEventListener("scroll", () => {
+        setShowNav(false);
+        setIsProfileOpen(false);
+    });
+
+    const handleMenuMobile = () => {
+        setShowNav(!showNav);
+        setIsProfileOpen(false);
+    };
+    const handleProfile = () => {
+        setIsProfileOpen(!isProfileOpen);
+        setShowNav(false);
+    };
+
+
+
 
     // logout function ---------
     const handleLogOut = () => {
@@ -57,13 +79,13 @@ const Navbar = () => {
 
                     {/* smaller device / choto mobile------- */}
                     <div className="dropdown"
-                        onClick={() => setShowNav(!showNav)}
+                        onClick={handleMenuMobile}
                     >
                         <label tabIndex={0} className="md:hidden mb-2">
                             <ButtonPublic><FaBars /></ButtonPublic>
                         </label>
                         {showNav &&
-                            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 dark:bg-gray-900">
                                 {navItems}
                             </ul>
                         }
@@ -79,13 +101,63 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
+
+                {/* login logout pic avater ---  */}
                 <div className="navbar-end" title={user?.displayName}>
                     {user?.uid ?
-                        <Link to="/" className="" onClick={handleLogOut}><ButtonPublic size={""}>Sign Out</ButtonPublic></Link>
+                        <Link
+                            onClick={handleProfile}
+                            title={user?.displayName ? user?.displayName : "No Name found, Update your name pls"}
+                        >
+                            <img className='w-12 h-12 rounded-full mt- mr-2 pt-2' src={user?.photoURL ? user?.photoURL : loginIcon} alt="" />
+                        </Link>
                         :
-                        <Link to="/signin"><ButtonPublic>Sign In</ButtonPublic></Link>
+                        <Link
+                            onClick={handleProfile}
+                            to="/signin"
+                            title='Sign in Pls'
+                        >
+                            <ButtonPublic>Sign In</ButtonPublic>
+                        </Link>
                     }
                 </div>
+
+
+                {user && isProfileOpen && (
+                    <div
+                        className="absolute top-[68px] right-1 z-50 text-base list-none bg-white rounded-2xl divide-y divide-gray-100 shadow dark:bg-gray-900 dark:divide-gray-600 "
+                        onClick={handleProfile}
+                    >
+                        <ul>
+                            <Link className="py-3 px-4 block max-w-[210px] cursor-text">
+                                <span className="block text-sm text-gray-900 dark:text-white" >{user?.displayName ? user?.displayName : "No Name found, Update your name pls"}</span>
+                                <span className="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">{user?.email}</span>
+                            </Link>
+                        </ul>
+                        <ul className="py-1" aria-labelledby="user-menu-button">
+                            <li>
+                                <Link to="/dashboard" className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</ Link>
+                            </li>
+                            <li>
+                                <Link to="" className="cursor-auto block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</ Link>
+                            </li>
+                            <li>
+                                <Link to="" className="cursor-auto block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</ Link>
+                            </li>
+                            <li>
+                                <Link
+                                    onClick={handleLogOut}
+                                >
+                                    <ButtonPublic>
+                                        Sign out
+                                    </ButtonPublic>
+                                </ Link>
+                            </li>
+                        </ul>
+                    </div>
+                )}
+
+
             </div>
         </div>
     );
